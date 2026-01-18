@@ -91,3 +91,142 @@ body .container .login-container{
     gap: 2px;
 }
 
+.login-form .form-username label{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.login-form .form-username input{
+    width: 380px;
+    height: 48px;
+    padding: 14px;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+}
+
+.login-form .form-username input::placeholder{
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+}
+
+.login-content .login-form .form-password{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.login-form .form-password label{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.login-form .form-password .password-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.form-password .password-wrapper input{
+    width: 380px;
+    height: 48px;
+    padding: 14px;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+}
+
+.form-password .password-wrapper input::placeholder{
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+}
+
+.form-password .password-wrapper span{
+    cursor: pointer;
+    position: absolute;
+    margin-right: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.password-wrapper span img{
+    width: 18px;
+    height: 18px;
+}
+
+.login-form .form-password .forget-password{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.form-password .forget-password a{
+    text-decoration: none;
+}
+
+.forget-password a p{
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0;
+    color: #ABABAB;
+}
+
+.forget-password a p:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+.login-content .login-form .form-button{
+    margin-top: 30px;
+}
+
+.form-button a button{
+    width: 380px;
+    height: 48px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #3572EF;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+.login-content .login-form .form-register{
+    margin-top: 10px;
+}
+
+.login-form .form-register p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #919191;
+}
+
+p span a{
+    text-decoration: none;
+    color: #3572EF;
+}

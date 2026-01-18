@@ -29,7 +29,7 @@
             <!-- Form -->
             <div class="login-form">
               <div class="form-username">
-                <h1>Username</h1>
+                <label>Username</label>
                 <input
                   type="text"
                   name="username"
@@ -38,24 +38,34 @@
                 />
               </div>
               <div class="form-password">
-                <h1>Password</h1>
-                <input
-                  type="text"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                />
-                <p>Forgot Password?</p>
+                <label>Password</label>
+                <div class="password-wrapper">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <span class="toggle-password" onclick="togglePassword()">
+                    <img src="assets/eye-slash.png" alt="Show Password" />
+                  </span>
+                </div>
+                <div class="forget-password">
+                  <a href="#">
+                    <p>Forget Password?</p>
+                  </a>
+                </div>
               </div>
               <div class="form-button">
                 <a href="#">
                   <button class="login">Login</button>
                 </a>
               </div>
-              <div class="form-register"></div>
-              <p>
-                Don't have an account? <span><a href="#">Register</a></span>
-              </p>
+              <div class="form-register">
+                <p>
+                  Don't have an account? <span><a href="#">Register</a></span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
