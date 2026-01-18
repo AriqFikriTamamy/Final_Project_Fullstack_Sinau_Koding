@@ -76,3 +76,18 @@ body .container .login-container{
     letter-spacing: 0%;
     color: #919191;
 }
+
+.login-container .login-content .login-form{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-content .login-form .form-username{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
