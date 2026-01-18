@@ -49,3 +49,30 @@ body .container .login-container{
     width: 130px;
     height: 50px;
 }
+
+.login-container .login-content .login-title{
+    margin-top: 30px;
+    /* margin-left: 100px;
+    margin-right: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login-content .login-title h1{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.login-content .login-title h2{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #919191;
+}
