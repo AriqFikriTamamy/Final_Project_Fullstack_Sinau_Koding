@@ -21,3 +21,15 @@ html body .container{
     /* background-position: center; */
     background-repeat: no-repeat;
 }
+
+body .container .register-container{
+    width: 600px;
+    height: 644px;
+    background-color: #F7F7F7;
+    position: absolute;
+    top: 190px;
+    left: 120px;
+    border-radius: 20px;
+    border-style: none;
+    border: 4px
+}
