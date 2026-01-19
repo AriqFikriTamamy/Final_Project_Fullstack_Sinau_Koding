@@ -278,11 +278,11 @@ body .container .register-container{
     letter-spacing: 0;
 }
 
-.register-content .register-form .form-register{
+.register-content .register-form .form-login{
     margin-top: 10px;
 }
 
-.register-form .form-register p{
+.register-form .form-login p{
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -290,7 +290,7 @@ body .container .register-container{
     color: #919191;
 }
 
-.form-register p span a{
+.form-login p a{
     text-decoration: none;
     color: #3572EF;
 }
