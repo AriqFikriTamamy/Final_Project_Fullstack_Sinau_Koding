@@ -266,6 +266,7 @@ body .container .register-container{
 }
 
 .form-button a button{
+    cursor: pointer;
     width: 380px;
     height: 48px;
     border-radius: 10px;
