@@ -226,7 +226,7 @@ body .container .login-container{
     color: #919191;
 }
 
-p span a{
+.form-register p span a{
     text-decoration: none;
     color: #3572EF;
 }
