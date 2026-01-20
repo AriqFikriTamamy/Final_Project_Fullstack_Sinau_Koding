@@ -60,9 +60,9 @@ nav .search-bar input{
 }
 
 nav .search-bar input[type=text]:focus{
-     border-color: #007bff;
-     color: #007bff;
-     outline: none;
+    border-color: #007bff;
+    color: #007bff;
+    outline: none;
 }
 
 nav .search-bar input:not(:placeholder-shown){
@@ -85,6 +85,7 @@ nav .search-bar input::placeholder{
     row-gap: 50px;
     justify-content: flex-end;
     /* align-items: center; */
+    cursor: pointer;
 }
 
 nav .archive-and-account-container .order-archive{
@@ -100,7 +101,7 @@ nav .archive-and-account-container .order-archive{
     margin-left: 1016px;
 }
 
-nav .order-archive .order-archive-logo{
+.archive-and-account-container .order-archive .order-archive-logo{
     margin-top: 1px;
     margin-bottom: 1px;
 }
@@ -110,11 +111,76 @@ nav .order-archive .order-archive-logo{
     height: 18px;
 }
 
-nav .order-archive .order-archive-text{
+.archive-and-account-container .order-archive .order-archive-text{
     color: #787878;
 }
 
 .order-archive .order-archive-text p {
     font-weight: 400;
     font-size: 14px;
+}
+
+nav .archive-and-account-container .navbar-account{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 151px;
+    margin-left: 50px;
+}
+
+.archive-and-account-container .navbar-account .account-image{
+    margin-left: 50px;
+    border-radius: 100px;
+}
+
+.navbar-account .account-image img{
+    width: 50px;
+    height: 50px;
+}
+
+.archive-and-account-container .navbar-account a{
+    text-decoration: none;
+}
+
+.archive-and-account-container .navbar-account .account-name-title{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.navbar-account .account-name-title .account-name{
+    display: flex;
+    flex-direction: row;
+    line-height: 18px;
+    color: #000000;
+    width: 51px;
+}
+
+.account-name-title .account-name p{
+    font-weight: 500;
+    font-size: 12px;
+    /* letter-spacing: 0; */
+}
+
+.navbar-account .account-name-title .account-title{
+    line-height: 15px;
+    color: #787878;
+}
+
+.account-name-title .account-title p{
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.archive-and-account-container .navbar-account .logout-icon{
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.logout-icon a img{
+    width: 20px;
+    height: 20px;
 }
