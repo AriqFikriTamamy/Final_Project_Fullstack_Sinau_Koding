@@ -9,12 +9,18 @@ html body{
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     overflow-y: hidden;
+    background-color: #F7F7F7;
 }
 
 html body header{
     width: 100%;
-    height: 1024px;
+    height: 80px;
+    margin-left: 220px;
+    position: absolute;
+    z-index: 10;
+    background-color: #FFFFFF;
 }
 
 body header .header-container{
@@ -98,7 +104,7 @@ nav .archive-and-account-container .order-archive{
     height: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 1016px;
+    margin-left: 796px;
 }
 
 .archive-and-account-container .order-archive .order-archive-logo{
@@ -183,4 +189,205 @@ nav .archive-and-account-container .navbar-account{
 .logout-icon a img{
     width: 20px;
     height: 20px;
+}
+
+body main .container{
+    width: 100%;
+    height: 1024px;
+    margin: 0 auto;
+}
+
+main .container .sidebar{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    height: 100%;
+    z-index: 100;
+    padding-top: 15px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+}
+
+.sidebar .logo-section .logo-and-minimize{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.logo-and-minimize .logo img{
+    width: 130px;
+    height: 50px;
+}
+
+.logo-section .logo-and-minimize .minimize-sidebar{
+    margin-left: 29px;
+    cursor: pointer;
+}
+
+.logo-and-minimize .minimize-sidebar img{
+    width: 26px;
+    height: 26px;
+}
+
+.container .sidebar .cashier-section{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.sidebar .cashier-section .cashier-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.cashier-section .cashier-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.sidebar .cashier-section .cashier-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #3572EF;
+    margin-left: 12px;
+}
+
+.cashier-section .cashier-text a{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text a:visited{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text a:link{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.sidebar .cashier-section .side-bar-selected{
+    margin-left: 70px;
+}
+
+.cashier-section .side-bar-selected img{
+    width: 3px;
+    height: 30px;
+}
+
+.container .sidebar .sales-report-section{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.sidebar .sales-report-section .sales-report-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.sales-report-section .sales-report-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.sidebar .sales-report-section .sales-report-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    margin-left: 12px;
+}
+
+.sales-report-section .sales-report-text a{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.sales-report-section .sales-report-text a:visited{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.sales-report-section .sales-report-text a:link{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.sales-report-section .sales-report-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.container .sidebar .settings-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.sidebar .settings-section .settings-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.settings-section .settings-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.sidebar .settings-section .settings-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    margin-left: 12px;
+}
+
+.settings-section .settings-text a{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.settings-section .settings-text a:visited{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.settings-section .settings-text a:link{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.settings-section .settings-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.settings-section .settings-text p{
+    font-weight: 400;
+    font-size: 16px;
 }
