@@ -25,30 +25,96 @@ body header .header-container{
 header .header-container nav{
     display: flex;
     flex-direction: row;
+    justify-content:space-between;
 }
 
 .header-container nav .search-bar{
-    display: flex;
-    flex-direction: row;
-    width: 500px;
-    height: 42px;
     margin-left: 20px;
     margin-top: 19px;
-    margin-bottom: 19px;
     /* padding: 12px; */
+}
+
+nav .search-bar .search-bar-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 10px;
+    /* position: absolute;
+    left: 12px;
+    top: 18px; */
+    /* bottom: 13px; */
+    margin-left: 12px;
+    /* margin-top: 13px; */
+    margin-bottom: 13px;
+}
+
+nav .search-bar input{
+    width: 500px;
+    height: 42px;
     border-radius: 10px;
     border: 1px solid #EBEBEB;
+    background-image: url(assets/search-normal.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 16px 16px;
 }
 
-nav .search-bar .search-logo{
-
-    margin-top: 13px;
-    margin-bottom: 13px;
-    margin-left: 12px;
+nav .search-bar input[type=text]:focus{
+     border-color: #007bff;
+     color: #007bff;
+     outline: none;
 }
 
-.search-bar .search-logo img{
-    width: 16px;
-    height: 16px;
+nav .search-bar input:not(:placeholder-shown){
+    background-image: none;
+    padding-left: 10px;
+}
+
+nav .search-bar input::placeholder{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    padding-left: 38px;
+}
+
+.header-container nav .archive-and-account-container{
+    display: flex;
+    flex-direction: row;
+    row-gap: 50px;
+    justify-content: flex-end;
+    /* align-items: center; */
+}
+
+nav .archive-and-account-container .order-archive{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 113px;
+    height: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 1016px;
+}
+
+nav .order-archive .order-archive-logo{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.order-archive .order-archive-logo img{
+    width: 18px;
+    height: 18px;
+}
+
+nav .order-archive .order-archive-text{
+    color: #787878;
+}
+
+.order-archive .order-archive-text p {
+    font-weight: 400;
+    font-size: 14px;
 }
