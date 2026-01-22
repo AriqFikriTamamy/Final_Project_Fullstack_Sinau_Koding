@@ -138,30 +138,519 @@
         </aside>
         <section class="main-content">
           <div class="container">
-            <!-- Category Menu Section -->
-            <section class="category-menu-section" id="category-menu-section">
-              <div class="category-menu">
-                <div class="all-menu-card">
+            <div class="menu-section">
+              <!-- Category Menu Section -->
+              <section class="category-menu-section" id="category-menu-section">
+                <div class="category-menu">
+                  <div class="all-menu-card active" data-filter="all">
                     <p>All Menu</p>
-                </div>
-                <div class="foods-card">
-                  <img src="assets/foods-icon.png" alt="Foods Category Icon">
+                  </div>
+                  <div class="foods-card" data-filter="food">
+                    <img src="assets/foods-icon.png" alt="Foods Category Icon" class="category-icon">
                     <p>Foods</p>
-                </div>
-                <div class="beverages-card">
-                  <img src="assets/beverages-icon.png" alt="Foods Category Icon">
+                  </div>
+                  <div class="beverages-card" data-filter="beverages">
+                    <img src="assets/beverages-icon.png" alt="Beverages Category Icon" class="category-icon">
                     <p>Beverages</p>
-                </div>
-                <div class="dessert-card">
-                  <img src="assets/dessert-icon.png" alt="Foods Category Icon">
+                  </div>
+                  <div class="dessert-card" data-filter="dessert">
+                    <img src="assets/dessert-icon.png" alt="Dessert Category Icon" class="category-icon">
                     <p>Dessert</p>
+                  </div>
                 </div>
-              </div>
+              </section>
+  
+              <!-- List Menu Section -->
+              <section class="list-menu-section">
+                <div class="list-menu-title">
+                  <h1>List Menu</h1>
+                  <div class="total-list-menu">
+                    <p class="text-total">Total: </p>
+                    <p id="totalMenuCount">30 Menu</p>
+                  </div>
+                </div>
+                <div class="menu-list">
+                  <!-- Food Category -->
+                  <div class="menu-list-card" data-category="food">
+                      <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                      <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="menu-list-card" data-category="food">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Food</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Beverages Category Menu-->
+                  <div class="menu-list-card" data-category="beverages">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Beverages</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Dessert Category Menu -->
+                  <div class="menu-list-card" data-category="dessert">
+                    <div class="menu-content">
+                        <div class="menu-image">
+                          <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
+                          <div class="category-badge">
+                            <p>Dessert</p>
+                          </div>
+                        </div>
+                        <div class="menu-name">
+                          <h1>Gado-gado Special</h1>
+                        </div>
+                        <div class="menu-description">
+                          <p>Vegetables, egg, tempe, tofu, ketupat, peanut sauce, and kerupuk.</p>
+                        </div>
+                        <div class="menu-price">
+                          <p><span>Rp. 20.000</span>/portion</p>
+                        </div>
+                        <div class="detail-menu-icon">
+                          <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+  
+            </div>
+            <!-- List Order Section -->
+            <section class="list-order-section" id="list-order-section">
+              <div class="list-order"></div>
             </section>
           </div>
         </section>
       </div>
     </main>
     <footer></footer>
+
+    <!-- Modal Menu -->
+    <!-- Modal Detail Menu -->
+    <div class="modal-overlay" id="menuModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h1>Detail Menu</h1>
+          </div>
+          <span class="modal-close" id="closeModal">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <img id="modalMenuImage" src="" alt="Menu Image">
+          <div class="category-badge">
+            <p class="badge-text" id="modalMenuBadge">Menu Badge</p>
+          </div>
+          <h2 id="modalMenuName">Menu Name</h2>
+          <p id="modalMenuDescription"></p>
+          <p class="modal-price">
+            <span id="modalMenuPrice"></span> / portion
+          </p>
+        </div>
+
+        <!-- <div class="modal-footer">
+          <button class="btn-add">Add to Order</button>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="cashier.js">
+      
+    </script>
+
   </body>
 </html>
