@@ -67,6 +67,175 @@ categoryButtons.forEach(button => {
 
 updateTotalMenu(menuCards.length);
 
+// List Order Section
+const orderListElement = document.getElementById("orderList");
+const orderSummaryElement = document.getElementById("orderSummary");
+const subTotalElement = document.getElementById("subTotal");
+const taxElement = document.getElementById("tax");
+const totalElement = document.getElementById("total");
+const payButton = document.getElementById("payButton");
+
+// List Order Category Active
+const dineInBtn = document.querySelector(".order-dine-in");
+const takeAwayBtn = document.querySelector(".order-take-away");
+
+let currentOrderType = "dinein";
+
+let orders = {
+    dinein: {},
+    takeaway: {}
+};
+
+dineInBtn.addEventListener("click", () => {
+    setOrderType("dinein");
+});
+
+takeAwayBtn.addEventListener("click", () => {
+    setOrderType("takeaway");
+});
+
+function setOrderType(type){
+    currentOrderType = type;
+
+    dineInBtn.classList.remove("active");
+    takeAwayBtn.classList.remove("active");
+
+    if(type === "dinein"){
+        dineInBtn.classList.add("active")
+    }else{
+        takeAwayBtn.classList.add("active");
+    };
+
+    renderOrderList();
+};
+
+// Order List Data
+const taxRate = 5000;
+
+document.querySelectorAll(".menu-list-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+        const price = parseInt(card.dataset.price);
+        const image = card.dataset.image;
+        const activeOrders = orders[currentOrderType];
+
+        if(activeOrders[id]){
+            activeOrders[id].qty += 1;
+        }else{
+            activeOrders[id] = {id, name, price, image, qty: 1}
+        }
+
+        // if(orders[id]){
+        //     orders[id].qty += 1;
+        // }else{
+        //     orders[id] = {id, name, price, image, qty: 1};
+        // }
+
+        renderOrderList();
+    });
+});
+
+function renderOrderList(){
+    const activeOrders = orders[currentOrderType];
+    orderListElement.innerHTML = "";
+
+    if(Object.keys(activeOrders).length === 0){
+        orderListElement.innerHTML = `<h1 class="empty-order">No Menu Selected</h1>`;
+        orderSummaryElement.style.display = "none";
+        payButton.style.backgroundColor = "#C4C4C4";
+        return;
+    };
+
+    orderSummaryElement.style.display = "block";
+
+    let subTotal = 0;
+
+    Object.values(activeOrders).forEach(item => {
+        subTotal += item.price * item.qty;
+
+        const row = document.createElement("div");
+        row.className = "order-item";
+        row.innerHTML = `
+            <img src="${item.image}" id="itemImage">
+            <div class="order-info">
+                <div class="order-delete">
+                    <img src="assets/trash_icon.png" onclick="deleteOrder('${item.id}')">
+                </div>
+                <div class="item-info">
+                    <div class="name-and-price">
+                        <strong>${item.name}</strong>
+                        <span>${format(item.price)}</span>
+                    </div>
+                    <div class="qty-and-edit">
+                        <div class="order-edit">
+                            <img src="assets/edit-order-icon.png">
+                        </div>
+                        <div class="order-qty">
+                            <button onClick="updateQty('${item.id}', -1)" id="minus">-</button>
+                            <span>${item.qty}</span>
+                            <button onClick="updateQty('${item.id}', 1)" id="plus">+</button>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        `;
+        orderListElement.appendChild(row);
+    });
+
+    const tax = taxRate;
+    const total = subTotal + tax;
+
+    subTotalElement.textContent = `Rp. ${format(subTotal)}`;
+    taxElement.textContent = `Rp ${format(tax)}`;
+    totalElement.textContent = `Rp ${format(total)}`;
+
+    payButton.style.backgroundColor = "#3572EF";
+};
+
+function updateQty(id, change){
+    const activeOrders = orders[currentOrderType];
+
+    if(!activeOrders[id]) return;
+
+    activeOrders[id].qty += change;
+    if(activeOrders[id].qty <= 0){
+        delete activeOrders[id];
+    };
+
+    // if(!orders[id]) return;
+    // orders[id].qty += change;
+    // if(orders[id].qty <= 0){
+    //     delete orders[id];
+    // };
+
+    renderOrderList();
+
+    // Jika order kosong
+    if(Object.keys(orders).length === 0){
+        orderListElement.innerHTML = `<h1 class="empty-order">No Menu Selected</h1>`;
+        orderSummaryElement.style.display = "none";
+        payButton.style.backgroundColor = "#C4C4C4";
+    };
+};
+
+function deleteOrder(id){
+    const activeOrders = orders[currentOrderType];
+    delete activeOrders[id];
+    // delete orders[id];
+    renderOrderList();
+
+    if(Object.keys(orders).length === 0){
+        orderListElement.innerHTML = `<h1 class="empty-order">No Menu Selected</h1>`;
+        orderSummaryElement.style.display == "none";
+        payButton.style.backgroundColor = "#C4C4C4";
+    };
+};
+
+function format(num){
+    return num.toLocaleString('id-ID');
+};
+
 // Dropdown Menu No Table List Order
 const dropdown = document.getElementById("tableDropdown");
 const toggle = dropdown.querySelector(".dropdown-toggle");

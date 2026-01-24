@@ -197,14 +197,6 @@ html body main{
     height: auto;
 }
 
-/* body main .sidebar-container{
-    width: 82%;
-    height: 1024px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-} */
-
 body main .sidebar{
     position: relative;
     display: flex;
@@ -833,12 +825,17 @@ main .main-content .list-order-section{
     background-color: #FFFFFF;
     margin-left: 6px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content .list-order-section .list-order{
     width: 790px;
     margin-left: 20px;
     margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -929,6 +926,7 @@ main .main-content .list-order-section{
     height: 48px;
     border-radius: 10px;
     border: 1px solid #C4C4C4;
+    cursor: pointer;
 }
 
 .list-order-category .order-dine-in p{
@@ -947,6 +945,7 @@ main .main-content .list-order-section{
     height: 48px;
     border-radius: 10px;
     border: 1px solid #C4C4C4;
+    cursor: pointer;
 }
 
 .list-order-category .order-take-away p{
@@ -985,6 +984,8 @@ main .main-content .list-order-section{
     width: 190px;
     height: 48px;
     border-radius: 10px;
+    border: 1px solid #EBEBEB;
+    padding-left: 10px;
 }
 
 .customer-name-and-table .customer-name input::placeholder{
@@ -1027,8 +1028,12 @@ main .main-content .list-order-section{
     height: 48px;
     border-radius: 10px;
     border: 1px solid #EBEBEB;
-    color: #C4C4C4 !important;
+    color: #C4C4C4;
 }
+
+/* .dropdown-button a span{
+    color: #000000;
+} */
 
 .table-number .dropdown-button a:visited{
     color: #000000;
@@ -1084,16 +1089,25 @@ main .main-content .list-order-section{
 }
 
 .list-order-section .list-order .list-order-main{
-    margin-top: 20px;
+    /* margin-top: 20px;
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 20px; */
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .list-order .list-order-main .order-listed{
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    padding: 16px;
+    height: 260px;
+    gap: 10px;
+}
+
+.list-order-main .order-listed .empty-order{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -1107,25 +1121,195 @@ main .main-content .list-order-section{
     color: #919191;
 }
 
-.list-order .list-order-main a{
-    width: 700px;
-    height: 48px;
-    margin-top: 335px;
+.list-order .list-order-main .order-footer{
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #F7F7F7;
+    width: 730px;
     border-radius: 10px;
-    background-color: #C4C4C4;
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
-.list-order-main a .pay-button{
+.list-order-main .order-footer .order-summary{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.order-footer .order-summary .summary-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 227px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.order-summary .summary-row span{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.order-summary .summary-row #subTotal{
+    margin-right: 15px;
+}
+
+.order-footer .order-summary .summary-divider{
+    border: 1px dashed #C4C4C4;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 20px;
+}
+
+.order-footer .order-summary .summary-row-total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 227px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 28px;
+    margin-bottom: 20px;
+    color: #2B2B2B;
+}
+
+.order-summary .summary-row-total span{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-left: 10px;
+}
+
+.order-summary .summary-row-total #total{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px
+}
+
+.list-order .list-order-main .pay-wrapper{
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    margin-top: 12px;
-    margin-bottom: 12px;
 }
 
-a .pay-button p{
+.list-order-main .pay-wrapper button{
+    width: 390px;
+    height: 48px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    border: none;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+/* Order per-Item (at cashier.js) */
+.order-item{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    margin-bottom: 12px;
+    /* border: 1px solid black; */
+}
+
+.order-item #itemImage{
+    width:100px; 
+    height:100px;
+    border-radius: 10px;
+}
+
+.order-item .order-info{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.order-item .order-info .order-delete{
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    height: 28px;
+    width: auto;
+}
+
+.order-info .order-delete img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.order-info .item-info .name-and-price{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-info .name-and-price strong{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.item-info .name-and-price span{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.order-info .item-info .qty-and-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-top: 10px; */
+}
+
+.order-info .item-info .order-edit{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.item-info .qty-and-edit .order-qty{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.qty-and-edit .order-qty button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.qty-and-edit .order-qty #plus{
+    background: #FFFFFF;
+    border: 1.8px solid #3572EF;
+    color: #3572EF;
+}
+
+.qty-and-edit .order-qty #minus{
+    background: #FFFFFF;
+    border: 1.8px solid #C4C4C4;
+    color: #C4C4C4;
+}
+
+.qty-and-edit .order-qty span{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
 }
