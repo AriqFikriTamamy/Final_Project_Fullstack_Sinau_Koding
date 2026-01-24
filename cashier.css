@@ -14,7 +14,7 @@ html body{
 }
 
 html body header{
-    width: 100%;
+    width: 169%;
     height: 80px;
     margin-left: 220px;
     position: absolute;
@@ -577,6 +577,12 @@ main .main-content .container{
     overflow-y: scroll;
 }
 
+.menu-section .list-menu-section .menu-list::-webkit-scrollbar-button{
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 .list-menu-section .menu-list .menu-list-card{
     width: 205px;
     height: 232px;
@@ -684,13 +690,6 @@ main .main-content .container{
     bottom: 15px;
 }
 
-.list-order-section{
-    width: 430px;
-    height: 904px;
-    background-color: #FFFFFF;
-    margin-left: 6px;
-}
-
 /* Modal Menu */
 /* Modal Overlay */
 .modal-overlay {
@@ -706,6 +705,7 @@ main .main-content .container{
     z-index: 999;
 }
 
+/* Modal Detail Menu */
 /* Modal Box */
 .modal-overlay .modal-content {
     /* width: 500px; */
@@ -824,4 +824,308 @@ main .main-content .container{
     border-radius: 8px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+/* List Order Section */
+main .main-content .list-order-section{
+    width: 790px;
+    height: 804px;
+    background-color: #FFFFFF;
+    margin-left: 6px;
+    border-radius: 10px;
+}
+
+.main-content .list-order-section .list-order{
+    width: 790px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-order-section .list-order .list-order-header{
+    width: 790px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-order .list-order-header .order-title-and-archive{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-order-header .order-title-and-archive .list-order-title{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-title-and-archive .list-order-title h1{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.order-title-and-archive .list-order-title h2{
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0;
+    color: #919191;
+}
+
+.list-order-title h2 span{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.list-order-header .order-title-and-archive .list-order-archive{
+    width: 38px;
+    height: 38px;
+    margin-right: 40px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+}
+
+.order-title-and-archive .list-order-archive .order-archive-icon{
+    position: relative;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+}
+
+.list-order-archive .order-archive-icon img{
+    width: 18px;
+    height: 18px;
+}
+
+.list-order .list-order-header .list-order-category{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    color: #ABABAB;
+}
+
+.list-order-header .list-order-category .active{
+    background-color: #3572EF;
+}
+
+.list-order-category .active p{
+    color: #FFFFFF;
+}
+
+.list-order-header .list-order-category .order-dine-in{
+    width: 190px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+}
+
+.list-order-category .order-dine-in p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+.list-order-header .list-order-category .order-take-away{
+    width: 190px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+}
+
+.list-order-category .order-take-away p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+.list-order .list-order-header .customer-name-and-table{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.list-order-header .customer-name-and-table .customer-name{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.customer-name-and-table .customer-name label{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.customer-name-and-table .customer-name input{
+    width: 190px;
+    height: 48px;
+    border-radius: 10px;
+}
+
+.customer-name-and-table .customer-name input::placeholder{
+    padding-left: 14px;
+}
+.customer-name-and-table .customer-name input[type=text]:focus{
+    border-color: #3572EF;
+    outline: none;
+    padding-left: 10px;
+}
+
+.list-order-header .customer-name-and-table .table-number{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.customer-name-and-table .table-number label{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.customer-name-and-table .table-number .dropdown-button{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.table-number .dropdown-button a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-direction: row;
+    width: 190px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+    color: #C4C4C4 !important;
+}
+
+.table-number .dropdown-button a:visited{
+    color: #000000;
+    text-decoration: none;
+}
+
+.table-number .dropdown-button .dropdown-item{
+    list-style: none;
+    /* Sembunyikan Dropdown */
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 190px;
+    background-color: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+    z-index: 20;
+    padding: 5px 0;
+}
+
+.dropdown-button .dropdown-item li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Munculkan Dropdown */
+.dropdown-button.active .dropdown-item{
+    display: block;
+}
+
+.dropdown-button .dropdown-item li:hover{
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3572EF;
+}
+
+.dropdown-button .dropdown-toggle .dropdown-arrow{
+    transition: transform 0.3 ease;
+    transform: rotate(0deg);
+}
+
+.dropdown-button.active .dropdown-toggle .dropdown-arrow{
+    transform: rotate(180deg);
+}
+
+.list-order-section .list-order hr{
+    margin-top: 20px;
+    /* margin-left: 10px; */
+    margin-right: 50px;
+}
+
+.list-order-section .list-order .list-order-main{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-order .list-order-main .order-listed{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-order-main .order-listed h1{
+    margin-top: 100px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #919191;
+}
+
+.list-order .list-order-main a{
+    width: 700px;
+    height: 48px;
+    margin-top: 335px;
+    border-radius: 10px;
+    background-color: #C4C4C4;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.list-order-main a .pay-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+a .pay-button p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }

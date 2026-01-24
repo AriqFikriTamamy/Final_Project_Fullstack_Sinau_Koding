@@ -138,7 +138,8 @@
         </aside>
         <section class="main-content">
           <div class="container">
-            <div class="menu-section">
+            <!-- Menu Section -->
+            <section class="menu-section">
               <!-- Category Menu Section -->
               <section class="category-menu-section" id="category-menu-section">
                 <div class="category-menu">
@@ -608,10 +609,67 @@
                 </div>
               </section>
   
-            </div>
+            </section>
             <!-- List Order Section -->
             <section class="list-order-section" id="list-order-section">
-              <div class="list-order"></div>
+              <div class="list-order">
+                <div class="list-order-header">
+                  <div class="order-title-and-archive">
+                    <div class="list-order-title">
+                      <h1>List Order</h1>
+                      <h2>No Order <span>ORDR#1234567890</span></h2>
+                    </div>
+                    <div class="list-order-archive">
+                      <a href="#">
+                        <div class="order-archive-icon">
+                          <img src="assets/order-archive-icon.png" alt="Order Archive Icon">
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="list-order-category">
+                    <div class="order-dine-in active">
+                      <p>Dine In</p>
+                    </div>
+                    <div class="order-take-away">
+                      <p>Take Away</p>
+                    </div>
+                  </div>
+                  <div class="customer-name-and-table">
+                    <div class="customer-name">
+                      <label for="customer-name">Customer Name</label>
+                      <input type="text" name="customer-name" id="customer-name" placeholder="Customer Name">
+                    </div>
+                    <div class="table-number">
+                      <label for="table-number">No. Table</label>
+                      <div class="dropdown-button" id="tableDropdown">
+                        <a href="#" class="dropdown-toggle">
+                          <span class="selected-text">Select No. Table</span>
+                          <img src="assets/arrow-down.png" alt="Dropdown Icon" class="dropdown-arrow">
+                        </a>
+                        <ul class="dropdown-item">
+                          <li>No. 1</li>
+                          <li>No. 2</li>
+                          <li>No. 3</li>
+                          <li>No. 4</li>
+                          <li>No. 5</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="list-order-main">
+                  <div class="order-listed">
+                    <h1>No Menu Selected</h1>
+                  </div>
+                  <a href="#">
+                    <div class="pay-button">
+                      <p>Pay</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </section>
           </div>
         </section>
@@ -648,9 +706,6 @@
       </div>
     </div>
 
-    <script src="cashier.js">
-      
-    </script>
-
+    <script src="cashier.js"></script>
   </body>
 </html>

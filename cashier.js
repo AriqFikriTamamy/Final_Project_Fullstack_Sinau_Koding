@@ -1,7 +1,6 @@
 // Modal Detail Menu
 const modal = document.getElementById("menuModal");
 const closeModal = document.getElementById("closeModal");
-
 const modalName = document.getElementById("modalMenuName");
 const modalImage = document.getElementById("modalMenuImage");
 const modalDesc = document.getElementById("modalMenuDescription");
@@ -67,3 +66,30 @@ categoryButtons.forEach(button => {
 });
 
 updateTotalMenu(menuCards.length);
+
+// Dropdown Menu No Table List Order
+const dropdown = document.getElementById("tableDropdown");
+const toggle = dropdown.querySelector(".dropdown-toggle");
+const items = dropdown.querySelectorAll(".dropdown-item li");
+const selectedText = dropdown.querySelector(".selected-text");
+
+// Munculkan Dropdown
+toggle.addEventListener("click", function (e){
+    e.preventDefault();
+    dropdown.classList.toggle("active");
+});
+
+// Pilih Item Dropdown
+items.forEach(item => {
+    item.addEventListener("click", function (){
+        selectedText.textContent = this.textContent;
+        dropdown.classList.remove("active");
+    });
+});
+
+// Tutup Dropdown Menu
+document.addEventListener("click", function (e){
+    if(!dropdown.contains(e.target)){
+        dropdown.classList.remove("active");
+    };
+});
