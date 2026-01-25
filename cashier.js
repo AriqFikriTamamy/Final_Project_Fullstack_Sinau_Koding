@@ -1,3 +1,153 @@
+// Generate ID
+function generateOrderId() {
+    const random = Math.floor(10000000 + Math.random() * 90000000);
+    return `ORDR#${random}`;
+}
+
+let currentOrderId = generateOrderId();
+
+function updateOrderIdUI() {
+    const orderIdSpan = document.querySelector(".list-order-title h2 span");
+    if (orderIdSpan) {
+        orderIdSpan.textContent = currentOrderId;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateOrderIdUI();
+});
+
+// Modal Order Archive
+let archivedOrders = [];
+const orderArchiveModal = document.getElementById("orderArchiveModal");
+const closeOrderArchive = document.getElementById("closeOrderArchive");
+
+function openArchiveModal() {
+    renderArchiveList(archivedOrders);
+    orderArchiveModal.style.display = "flex";
+}
+
+closeOrderArchive.addEventListener("click", () => {
+    orderArchiveModal.style.display = "none";
+});
+
+function renderArchiveList(data) {
+    const list = document.getElementById("orderArchiveList");
+    list.innerHTML = "";
+
+    if (data.length === 0) {
+        list.innerHTML = "<p>No archived orders</p>";
+        return;
+    }
+
+    data.forEach((order, index) => {
+        const card = document.createElement("div");
+        card.className = "archive-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+        <div class="archive-info">
+            <span>No Order ${order.orderId} | ${order.type} | ${order.customer} | ${order.table}</span>
+            <span class="archive-datetime">${formatDate(order.createdAt)}</span>
+        </div>
+        
+        <div class="archive-total-and-use">
+            <div class="archive-total">Rp ${format(Number(order.total))}</div>
+            <div class="archive-use" data-index="${index}">
+                <img src="assets/arrow-right.png" alt="Archive Use Icon">
+            </div>
+        </div>
+        `;
+
+        list.appendChild(card);
+    });
+};
+
+document.getElementById("orderArchiveList").addEventListener("click", function (e) {
+    const useBtn = e.target.closest(".archive-use");
+    if (!useBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const index = useBtn.dataset.index;
+    const archiveData = archivedOrders[index];
+    if (!archiveData) return;
+
+    restoreArchiveToOrder(archiveData);
+});
+
+const customerInput = document.getElementById("customer-name");
+
+function restoreArchiveToOrder(archiveData) {
+    //Set order type
+    const type = archiveData.type === "Dine In" ? "dinein" : "takeaway";
+    setOrderType(type);
+
+    //Restore customer name
+    
+    if (customerInput) {
+        customerInput.value = archiveData.customer !== "-" ? archiveData.customer : "";
+    }
+
+    //Restore table
+    if (archiveData.table && archiveData.table !== "-") {
+        const selectedText = document.querySelector(".selected-text");
+        if (selectedText) selectedText.innerText = archiveData.table;
+    }
+
+    //Clear current order before restore
+    orders[type] = {};
+
+    //Restore items
+    archiveData.items.forEach(item => {
+        const itemId = item.id || crypto.randomUUID();
+        orders[type][itemId] = {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            qty: item.qty,
+            note: item.note || "",
+            image: item.image || ""
+        };
+    });
+
+    renderOrderList();
+
+    //Close archive modal
+    orderArchiveModal.style.display = "none";
+
+    currentOrderId = archiveData.orderId;
+    updateOrderIdUI();
+}
+
+function formatDate(date) {
+    return new Date(date).toLocaleString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+document.getElementById("searchArchiveBtn").addEventListener("click", () => {
+    const keyword = document.getElementById("searchArchiveInput").value.toLowerCase();
+    const type = document.getElementById("archiveTypeFilter").value;
+
+    const filtered = archivedOrders.filter(order => {
+        const matchKeyword =
+        order.orderId.toLowerCase().includes(keyword) ||
+        order.customer.toLowerCase().includes(keyword);
+
+        const matchType = type ? order.type === type : true;
+
+        return matchKeyword && matchType;
+    });
+
+    renderArchiveList(filtered);
+});
+
 // Modal Detail Menu
 const menuModal = document.getElementById("menuModal");
 const closeModal = document.getElementById("closeModal");
@@ -130,6 +280,7 @@ const orderSummaryElement = document.getElementById("orderSummary");
 const subTotalElement = document.getElementById("subTotal");
 const taxElement = document.getElementById("tax");
 const totalElement = document.getElementById("total");
+const nominalInputWrapper = document.querySelector(".nominal-input");
 const payButton = document.getElementById("payButton");
 
 // List Order Category Active
@@ -170,7 +321,9 @@ function setOrderType(type){
 const taxRate = 5000;
 
 document.querySelectorAll(".menu-list-card").forEach(card => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+        if (e.target.closest(".list-order-archive")) return;
+
         const id = card.dataset.id;
         const name = card.dataset.name;
         const price = parseInt(card.dataset.price);
@@ -194,11 +347,13 @@ function renderOrderList(){
     if(Object.keys(activeOrders).length === 0){
         orderListElement.innerHTML = `<h1 class="empty-order">No Menu Selected</h1>`;
         orderSummaryElement.style.display = "none";
+        nominalInputWrapper.style.display = "none";
         payButton.style.backgroundColor = "#C4C4C4";
         return;
     };
 
     orderSummaryElement.style.display = "block";
+    nominalInputWrapper.style.display = "flex";
 
     let subTotal = 0;
 
@@ -259,12 +414,6 @@ function updateQty(id, change){
         delete activeOrders[id];
     };
 
-    // if(!orders[id]) return;
-    // orders[id].qty += change;
-    // if(orders[id].qty <= 0){
-    //     delete orders[id];
-    // };
-
     renderOrderList();
 
     // Jika order kosong
@@ -292,6 +441,105 @@ function format(num){
     return num.toLocaleString('id-ID');
 };
 
+// Add to Order Archive
+// document.querySelectorAll(".order-archive, .order-archive-icon").forEach(btn => {
+//     btn.addEventListener("click", function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+
+//         saveOrderToArchive();
+//         openArchiveModal();
+//     });
+// });
+
+const openArchiveBtn = document.getElementById("openOrderArchive");
+
+openArchiveBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    openArchiveModal();
+});
+
+const listOrderArchiveBtn = document.getElementById("listOrderArchive");
+
+listOrderArchiveBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // validasi agar archive yang kosong tidak masuk data
+    const activeOrders = orders[currentOrderType];
+    if (Object.keys(activeOrders).length === 0) return;
+
+    saveOrderToArchive();
+    openArchiveModal();
+});
+
+function saveOrderToArchive(){
+    const orderType = currentOrderType; // snapshot type
+    const activeOrders = orders[orderType];
+
+    if (!activeOrders || Object.keys(activeOrders).length === 0) return;
+
+    const typeText = orderType === "dinein" ? "Dine In" : "Take Away";
+    const customerName = document.getElementById("customer-name")?.value.trim() || "-";
+    const tableText = document.querySelector(".selected-text")?.innerText || "-";
+
+    const items = Object.values(activeOrders).map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        qty: item.qty,
+        note: item.note || "",
+        image: item.image || ""
+    }));
+
+    if (items.length === 0) return;
+
+    const archiveData = {
+        orderId: currentOrderId,
+        type: typeText,
+        customer: customerName,
+        table: tableText,
+        total: calculateTotal(orderType),
+        items,
+        createdAt: new Date().toISOString()
+    };
+
+    archivedOrders.push(archiveData);
+    renderArchiveList(archivedOrders);
+
+    resetOrderAfterArchive();
+};
+
+function calculateTotal(orderType = currentOrderType) {
+    const activeOrders = orders[orderType];
+
+    return Object.values(activeOrders).reduce((total, item) => {
+        return total + item.price * item.qty;
+    }, 0);
+}
+
+function resetOrderAfterArchive() {
+    orders[currentOrderType] = {};
+
+    orderListElement.innerHTML =
+        '<h1 class="empty-order">No Menu Selected</h1>';
+
+    document.getElementById("customer-name").value = "";
+    document.querySelector(".selected-text").innerText = "Select No. Table";
+
+    currentOrderId = generateOrderId();
+    updateOrderIdUI();
+
+    renderOrderList();
+};
+
+function clearCurrentOrder() {
+    orders[currentOrderType] = {};
+    renderOrderList();
+}
+
 // Dropdown Menu No Table List Order
 const dropdown = document.getElementById("tableDropdown");
 const toggle = dropdown.querySelector(".dropdown-toggle");
@@ -317,4 +565,91 @@ document.addEventListener("click", function (e){
     if(!dropdown.contains(e.target)){
         dropdown.classList.remove("active");
     };
+});
+
+
+// Modal Transaction Success
+const successModal = document.getElementById("successModal");
+const closeSuccessModal = document.getElementById("closeSuccessModal");
+
+payButton.addEventListener("click", () => {
+    const activeOrders = orders[currentOrderType];
+
+    if (Object.keys(activeOrders).length === 0) return;
+
+    const nominalInput = document.getElementById("nominalInput");
+    const paid = parseInt(nominalInput.value.replace(/\D/g, "") || 0);
+
+    const subTotal = Object.values(activeOrders)
+        .reduce((sum, item) => sum + item.price * item.qty, 0);
+
+    const tax = taxRate;
+    const total = subTotal + tax;
+
+    if (paid < total) {
+        alert("Nominal pembayaran kurang");
+        return;
+    }
+
+    showSuccessModal({
+        activeOrders,
+        subTotal,
+        tax,
+        total,
+        paid
+    });
+});
+
+function showSuccessModal({ activeOrders, subTotal, tax, total, paid }) {
+    document.getElementById("receiptOrderId").innerText = currentOrderId;
+    document.getElementById("receiptDate").innerText =
+        new Date().toLocaleString("id-ID");
+    document.getElementById("receiptCustomer").innerText =
+        document.getElementById("customer-name").value || "-";
+    document.getElementById("receiptType").innerText =
+        currentOrderType === "dinein" ? "Dine In" : "Take Away";
+
+    const itemsContainer = document.getElementById("receiptItems");
+    itemsContainer.innerHTML = "";
+
+    Object.values(activeOrders).forEach(item => {
+        const row = document.createElement("div");
+        row.className = "receipt-item";
+
+        row.innerHTML = `
+            <div class="receipt-item-row">
+                <span>${item.name} x${item.qty}</span>
+                <span>Rp ${format(item.price * item.qty)}</span>
+            </div>
+            ${item.note ? `<small class="receipt-note">Catatan: ${item.note}</small>` : ""}
+        `;
+
+        itemsContainer.appendChild(row);
+    });
+
+    document.getElementById("receiptSubTotal").innerText =
+        `Rp ${format(subTotal)}`;
+    document.getElementById("receiptTax").innerText =
+        `Rp ${format(tax)}`;
+    document.getElementById("receiptTotal").innerText =
+        `Rp ${format(total)}`;
+
+    document.getElementById("receiptPaid").innerText =
+        `Rp ${format(paid)}`;
+    document.getElementById("receiptChange").innerText =
+        `Rp ${format(paid - total)}`;
+
+    successModal.style.display = "flex";
+};
+
+closeSuccessModal.addEventListener("click", () => {
+    successModal.style.display = "none";
+    resetOrderAfterArchive(); // atau clearCurrentOrder()
+});
+
+window.addEventListener("click", e => {
+    if (e.target === successModal) {
+        successModal.style.display = "none";
+        resetOrderAfterArchive();
+    }
 });

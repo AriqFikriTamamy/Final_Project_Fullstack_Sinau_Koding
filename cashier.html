@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POS Cashier</title>
     <link rel="stylesheet" href="cashier.css" />
+    <link rel="stylesheet" href="cashier-modal.css" />
 
     <!-- Google Font -->
     <style>
@@ -28,7 +29,7 @@
           </div>
           <div class="archive-and-account-container">
             <!-- Order Archive -->
-            <div class="order-archive">
+            <div class="order-archive" id="openOrderArchive">
               <div class="order-archive-logo">
                 <img src="assets/archive-add.png" alt="Order Archive Logo" />
               </div>
@@ -54,7 +55,7 @@
                 </div>
               </a>
               <div class="logout-icon">
-                <a href="#">
+                <a href="login.html">
                   <img src="assets/logout-cashier.png" alt="Logout Icon" />
                 </a>
               </div>
@@ -620,7 +621,7 @@
                     </div>
                     <div class="list-order-archive">
                       <a href="#">
-                        <div class="order-archive-icon">
+                        <div class="order-archive-icon" id="listOrderArchive">
                           <img src="assets/order-archive-icon.png" alt="Order Archive Icon">
                         </div>
                       </a>
@@ -681,6 +682,10 @@
                         <spam id="total">Rp. 0</span>
                       </div>
                     </div>
+                    <div class="nominal-input" style="display: none;">
+                      <label for="nominal-payment" class="nominal-payment">Nominal Payment</label>
+                      <input type="text" name="nominal-input" id="nominalInput" placeholder="Enter Nominal here...">
+                    </div>
                   </div>
                   <div class="pay-wrapper">
                     <button class="pay-button" id="payButton">Pay</button>
@@ -693,10 +698,37 @@
       </div>
     </main>
     <footer></footer>
+    <!-- Modal Order Archive -->
+    <div class="modal-overlay" id="orderArchiveModal" style="display: none;">
+      <div class="order-archive-modal">
+        <div class="modal-header" id="modal-order-archive">
+          <h1>Order Archive</h1>
+          <span class="modal-close" id="closeOrderArchive">&times;</span>
+        </div>
+
+      <!-- Search Section -->
+      <div class="order-archive-search">
+        <input type="text" id="searchArchiveInput" placeholder="Enter the keyword here..." />
+
+        <select id="archiveTypeFilter">
+          <option value="">Select type order</option>
+          <option value="Dine In">Dine In</option>
+          <option value="Take Away">Take Away</option>
+        </select>
+
+        <button id="searchArchiveBtn">Search</button>
+      </div>
+
+      <!-- Archive List -->
+      <div class="order-archive-list" id="orderArchiveList">
+
+      </div>
+    </div>
+  </div>
 
     <!-- Modal Menu -->
     <!-- Modal Detail Menu -->
-    <div class="modal-overlay" id="menuModal">
+    <div class="modal-overlay" id="menuModal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
           <div class="modal-title">
@@ -725,7 +757,7 @@
     </div>
 
     <!-- Modal Edit Order -->
-    <div class="modal-overlay" id="editOrderModal">
+    <div class="modal-overlay" id="editOrderModal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
           <div class="modal-title">
@@ -750,6 +782,51 @@
         <!-- <div class="modal-footer">
           <button class="btn-add">Add to Order</button>
         </div> -->
+      </div>
+    </div>
+
+    <!-- Modal Transaction Success -->
+    <div class="modal-overlay" id="successModal" style="display: none;">
+      <div class="modal-content success-modal">
+        <span class="modal-close" id="closeSuccessModal">&times;</span>
+
+        <h1 class="modal-title">Transaction Success</h1>
+
+        <div class="receipt">
+
+          <div class="receipt-info">
+            <p>No Order <strong id="receiptOrderId"></strong></p>
+            <p>Order Date <span id="receiptDate"></span></p>
+            <p>Customer Name <span id="receiptCustomer"></span></p>
+            <p id="receiptType"></p>
+          </div>
+
+          <hr>
+
+          <div id="receiptItems"></div>
+
+          <hr>
+
+          <div class="receipt-summary">
+            <div><span>Sub Total</span><span id="receiptSubTotal"></span></div>
+            <div><span>Tax</span><span id="receiptTax"></span></div>
+          </div>
+
+          <hr>
+
+          <div class="receipt-total">
+            <span>Total</span>
+            <strong id="receiptTotal"></strong>
+          </div>
+
+          <div class="receipt-payment">
+            <div><span>Diterima</span><span id="receiptPaid"></span></div>
+            <div><span>Kembalian</span><span id="receiptChange"></span></div>
+          </div>
+
+        </div>
+
+        <button class="print-btn">Print Struk</button>
       </div>
     </div>
 
