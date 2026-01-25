@@ -701,10 +701,12 @@ main .main-content .container{
 /* Modal Box */
 .modal-overlay .modal-content {
     /* width: 500px; */
-    height:500px;
+    height:610px;
+    max-height: 650px;
     background: #FFFFFF;
     border-radius: 12px;
     padding: 20px;
+    overflow-y: auto;
 }
 
 /* Header */
@@ -803,6 +805,51 @@ main .main-content .container{
     color: #3572EF;
 }
 
+.modal-note {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-note label {
+    font-size: 14px;
+    color: #5E5E5E;
+}
+
+.modal-note textarea {
+    /* width: 100%; */
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid #C4C4C4;
+    padding: 8px;
+    resize: none;
+    font-size: 14px;
+}
+
+.modal-note textarea:focus {
+    outline: none;
+    border-color: #3572EF;
+}
+
+.order-note {
+    font-size: 13px;
+    color: #919191;
+    /* margin-top: 6px; */
+    font-style: italic;
+    /* margin-top: 6px; */
+    /* margin-left: 24px;          MENJOROK ke kanan */
+    padding-left: 10px;
+    position: relative;
+}
+
+/* .order-note::before {
+    content: "↳";
+    position: absolute;
+    left: -18px;
+    color: #B0B0B0;
+} */
+
 /* Footer */
 .modal-footer {
     margin-top: 20px;
@@ -816,6 +863,7 @@ main .main-content .container{
     border-radius: 8px;
     color: #FFFFFF;
     cursor: pointer;
+    width: 100%;
 }
 
 /* List Order Section */
@@ -1277,6 +1325,8 @@ main .main-content .list-order-section{
     margin-bottom: 10px;
     margin-top: 10px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
 }
 
 .item-info .qty-and-edit .order-qty{

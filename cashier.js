@@ -1,5 +1,5 @@
 // Modal Detail Menu
-const modal = document.getElementById("menuModal");
+const menuModal = document.getElementById("menuModal");
 const closeModal = document.getElementById("closeModal");
 const modalName = document.getElementById("modalMenuName");
 const modalImage = document.getElementById("modalMenuImage");
@@ -10,26 +10,83 @@ const modalBadge = document.getElementById("modalMenuBadge");
 document.querySelectorAll(".detail-menu-icon").forEach(icon => {
     icon.addEventListener("click", function (e) {
         e.preventDefault();
+        e.stopPropagation();
 
-const card = this.closest(".menu-list-card");
+    const card = this.closest(".menu-list-card");
     modalName.innerText = card.querySelector(".menu-name h1").innerText;
     modalDesc.innerText = card.querySelector(".menu-description p").innerText;
     modalPrice.innerText = card.querySelector(".menu-price span").innerText;
     modalImage.src = card.querySelector(".menu-image img").src;
     modalBadge.innerText = card.querySelector(".category-badge p").innerText;
 
-    modal.style.display = "flex";
+    menuModal.style.display = "flex";
     });
 });
 
 closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
+    menuModal.style.display = "none";
 });
 
 window.addEventListener("click", e => {
-    if (e.target === modal) {
-        modal.style.display = "none";
+    if (e.target === menuModal) {
+        menuModal.style.display = "none";
     }
+});
+
+// Modal Edit Note Order
+let activeEditOrderId = null;
+let activeOrderItem = null;
+const editOrderModal = document.getElementById("editOrderModal");
+const closeEditModal = document.getElementById("closeEditModal");
+const editMenuName = document.getElementById("editMenuName");
+const editMenuImage = document.getElementById("editMenuImage");
+const editNoteInput = document.getElementById("editNote");
+const submitEditBtn = document.getElementById("submitEditOrder");
+
+document.addEventListener("click", function (e) {
+    const editBtn = e.target.closest(".order-edit");
+    if (!editBtn) return;
+
+    e.stopPropagation();
+
+    const orderItem = editBtn.closest(".order-item");
+    activeEditOrderId = orderItem.dataset.id;
+
+    const activeOrders = orders[currentOrderType];
+    const item = activeOrders[activeEditOrderId];
+    if (!item) return;
+
+    editMenuName.innerText = item.name;
+    editMenuImage.src = item.image;
+    editNoteInput.value = item.note || "";
+
+    editOrderModal.style.display = "flex";
+});
+
+closeEditModal.addEventListener("click", () => {
+    editOrderModal.style.display = "none";
+    activeEditOrderId = null;
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === editOrderModal) {
+        editOrderModal.style.display = "none";
+        activeEditOrderId = null;
+    }
+});
+
+submitEditBtn.addEventListener("click", () => {
+    if (!activeEditOrderId) return;
+
+    const activeOrders = orders[currentOrderType];
+    const item = activeOrders[activeEditOrderId];
+    if (!item) return;
+
+    item.note = editNoteInput.value.trim();
+
+    activeEditOrderId = null;
+    renderOrderList();
+    editOrderModal.style.display = "none";
 });
 
 // Category Menu Active and Counter Total Menu
@@ -123,14 +180,8 @@ document.querySelectorAll(".menu-list-card").forEach(card => {
         if(activeOrders[id]){
             activeOrders[id].qty += 1;
         }else{
-            activeOrders[id] = {id, name, price, image, qty: 1}
-        }
-
-        // if(orders[id]){
-        //     orders[id].qty += 1;
-        // }else{
-        //     orders[id] = {id, name, price, image, qty: 1};
-        // }
+            activeOrders[id] = {id, name, price, image, qty: 1, note: ""}
+        };
 
         renderOrderList();
     });
@@ -156,6 +207,7 @@ function renderOrderList(){
 
         const row = document.createElement("div");
         row.className = "order-item";
+        row.dataset.id = item.id;
         row.innerHTML = `
             <img src="${item.image}" id="itemImage">
             <div class="order-info">
@@ -167,16 +219,20 @@ function renderOrderList(){
                         <strong>${item.name}</strong>
                         <span>${format(item.price)}</span>
                     </div>
+
+
+                    
                     <div class="qty-and-edit">
                         <div class="order-edit">
-                            <img src="assets/edit-order-icon.png">
+                            <img src="assets/edit-order-icon.png" alt="Edit Order Icon" width="16px" height="16px">
+                            ${item.note ? `<p class="order-note">${item.note}</p>` : ""}
                         </div>
                         <div class="order-qty">
                             <button onClick="updateQty('${item.id}', -1)" id="minus">-</button>
                             <span>${item.qty}</span>
                             <button onClick="updateQty('${item.id}', 1)" id="plus">+</button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         `;
