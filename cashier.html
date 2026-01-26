@@ -170,9 +170,9 @@
                     <p id="totalMenuCount">30 Menu</p>
                   </div>
                 </div>
-                <div class="menu-list">
+                <div class="menu-list" id="menuList">
                   <!-- Food Category -->
-                  <div class="menu-list-card" data-category="food" data-id="1" data-name="Gado-Gado Special" data-price="20000" data-image="assets/gado-gado.png">
+                  <!-- <div class="menu-list-card" data-category=${menu.category} data-id=${menu.id} data-name=${menu.name} data-price=${menu.price} data-image="${menu.image}">
                       <div class="menu-content">
                         <div class="menu-image">
                           <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
@@ -555,9 +555,9 @@
                           </a>
                         </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Beverages Category Menu-->
-                  <div class="menu-list-card" data-category="beverages" data-id="17" data-name="Gado-Gado Special" data-price="20000" data-image="assets/gado-gado.png">
+                  <!-- <div class="menu-list-card" data-category="beverages" data-id="17" data-name="Gado-Gado Special" data-price="20000" data-image="assets/gado-gado.png">
                     <div class="menu-content">
                         <div class="menu-image">
                           <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
@@ -580,9 +580,9 @@
                           </a>
                         </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Dessert Category Menu -->
-                  <div class="menu-list-card" data-category="dessert" data-id="18" data-name="Gado-Gado Special" data-price="20000" data-image="assets/gado-gado.png">
+                  <!-- <div class="menu-list-card" data-category="dessert" data-id="18" data-name="Gado-Gado Special" data-price="20000" data-image="assets/gado-gado.png">
                     <div class="menu-content">
                         <div class="menu-image">
                           <img src="assets/gado-gado.png" alt="Gado Gado Special Image">
@@ -605,7 +605,7 @@
                           </a>
                         </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </section>
   
@@ -797,8 +797,9 @@
           <div class="receipt-info">
             <p>No Order <strong id="receiptOrderId"></strong></p>
             <p>Order Date <span id="receiptDate"></span></p>
-            <p>Customer Name <span id="receiptCustomer"></span></p>
+            <p>Customer Name: <span id="receiptCustomer"></span></p>
             <p id="receiptType"></p>
+            <p>Table <span id="tableNumber"></span></p>
           </div>
 
           <hr>
@@ -825,11 +826,14 @@
           </div>
 
         </div>
-
-        <button class="print-btn">Print Struk</button>
+        <a href="cashier.html" id="">
+          <button class="print-btn">Print Struk</button>
+        </a>
       </div>
     </div>
 
-    <script src="cashier.js"></script>
+    <script src="cashier.js">
+      
+    </script>
   </body>
 </html>

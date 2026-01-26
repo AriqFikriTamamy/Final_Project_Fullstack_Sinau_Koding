@@ -422,9 +422,26 @@
 }
 
 .receipt-info p {
+    font-weight: 300;
     font-size: 14px;
-    color: #555;
+    color: #787878;
     margin: 4px 0;
+}
+
+.receipt-info #receiptType {
+    font-weight: 400;
+    font-size: 14px;
+    color: #787878;
+    margin: 4px 0;
+}
+
+.receipt-info p span{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+    width: 150px;
 }
 
 .receipt-info strong {
@@ -515,7 +532,29 @@
     background: #285edb;
 }
 
-@media (max-width: 480px) {
+.receipt-item-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-item-row #qtyXPrice{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #5E5E5E;
+}
+
+.receipt-name-price-item{
+    display: flex;
+    justify-content: space-between;
+    gap: 273px;
+}
+
+.receipt-name-price-item #priceQty{
+    margin-left: 15px;
+}
+
+/* @media (max-width: 480px) {
     .success-modal {
         padding: 24px 18px;
     }
@@ -523,4 +562,4 @@
     .receipt-total strong {
         font-size: 24px;
     }
-}
+} */
