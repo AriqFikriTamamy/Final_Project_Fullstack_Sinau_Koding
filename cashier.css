@@ -1,3 +1,5 @@
+@import url(modal.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -14,23 +16,24 @@ html body{
 }
 
 html body header{
-    width: 169%;
+    width: 100%;
     height: 80px;
     margin-left: 220px;
     position: absolute;
     z-index: 10;
-    background-color: #FFFFFF;
 }
 
 body header .header-container{
-    width: 1360px;
+    /* width: 1360px; */
+    width: 100%;
     height: 80px;
+    background-color: #FFFFFF;
 }
 
 header .header-container nav{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    /* justify-content:space-between; */
 }
 
 .header-container nav .search-bar{
@@ -256,24 +259,24 @@ main .sidebar .cashier-section{
     margin: 7px;
 }
 
-.sidebar .cashier-section .cashier-text{
+.page-cashier .cashier-section .cashier-text{
     line-height: 18px;
     letter-spacing: 0;
     color: #3572EF;
     margin-left: 12px;
 }
 
-.cashier-section .cashier-text a{
+.page-cashier .cashier-text a{
     color: #3572EF;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:visited{
+.page-cashier .cashier-text a:visited{
     color: #3572EF;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:link{
+.page-cashier .cashier-text a:link{
     color: #3572EF;
     text-decoration: none;
 }

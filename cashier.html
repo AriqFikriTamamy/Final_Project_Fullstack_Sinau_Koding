@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POS Cashier</title>
     <link rel="stylesheet" href="cashier.css" />
-    <link rel="stylesheet" href="cashier-modal.css" />
+    <link rel="stylesheet" href="modal.css" />
 
     <!-- Google Font -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
   </head>
-  <body>
+  <body class="page-cashier">
     <header>
       <div class="header-container">
         <nav>
@@ -65,7 +65,7 @@
       </div>
     </header>
     <main>
-        <aside class="sidebar" id="sidebar">
+      <aside class="sidebar" id="sidebar">
           <!-- Logo Section -->
           <section class="logo-section">
             <div class="logo-and-minimize">
@@ -122,7 +122,7 @@
           <!-- Settings Section -->
           <section class="settings-section">
             <div class="settings-icon">
-              <a href="#">
+              <a href="settings.html">
                 <img
                   src="assets/settings-icon.png"
                   alt="Cashier Section Icon"
@@ -130,13 +130,13 @@
               </a>
             </div>
             <div class="settings-text">
-              <a href="#">
+              <a href="settings.html">
                 <p>Settings</p>
               </a>
             </div>
           </section>
-        </aside>
-        <section class="main-content">
+      </aside>
+      <section class="main-content">
           <div class="container">
             <!-- Menu Section -->
             <section class="menu-section">
@@ -610,8 +610,8 @@
               </section>
   
             </section>
-            <!-- List Order Section -->
-            <section class="list-order-section" id="list-order-section">
+              <!-- List Order Section -->
+              <section class="list-order-section" id="list-order-section">
               <div class="list-order">
                 <div class="list-order-header">
                   <div class="order-title-and-archive">
@@ -643,7 +643,7 @@
                     <div class="table-number">
                       <label for="table-number">No. Table</label>
                       <div class="dropdown-button" id="tableDropdown">
-                        <a href="#" class="dropdown-toggle">
+                        <a href="" class="dropdown-toggle">
                           <span class="selected-text">Select No. Table</span>
                           <img src="assets/arrow-down.png" alt="Dropdown Icon" class="dropdown-arrow">
                         </a>
@@ -694,8 +694,8 @@
               </div>
             </section>
           </div>
-        </section>
-      </div>
+      </section>
+      <!-- </div> -->
     </main>
     <footer></footer>
     <!-- Modal Order Archive -->
@@ -724,7 +724,7 @@
 
       </div>
     </div>
-  </div>
+    </div>
 
     <!-- Modal Menu -->
     <!-- Modal Detail Menu -->
@@ -832,8 +832,7 @@
       </div>
     </div>
 
-    <script src="cashier.js">
-      
-    </script>
+    <!-- <script type="module" src="js/main.js"></script> -->
+    <script src="cashier.js"></script>
   </body>
 </html>

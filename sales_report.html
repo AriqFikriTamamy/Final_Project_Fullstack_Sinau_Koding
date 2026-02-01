@@ -5,8 +5,602 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POS Sales Report</title>
     <link rel="stylesheet" href="sales_report.css" />
+    <link rel="stylesheet" href="modal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   </head>
-  <body>
-    <h1>Ini Halaman Sales Report</h1>
+  <body class="page-sales-report">
+    <header>
+      <div class="header-container">
+        <nav>
+          <!-- Search Bar -->
+          <div class="search-bar">
+            <div class="search-bar-box">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Enter the keyword here..."
+              />
+            </div>
+          </div>
+          <div class="archive-and-account-container">
+            <!-- Order Archive -->
+            <div class="order-archive" id="openOrderArchive">
+              <div class="order-archive-logo">
+                <img src="assets/archive-add.png" alt="Order Archive Logo" />
+              </div>
+              <div class="order-archive-text">
+                <p>Order Archive</p>
+              </div>
+            </div>
+            <!-- Navbar Account -->
+            <div class="navbar-account">
+              <a href="#">
+                <div class="account-image">
+                  <img src="assets/account-image.png" alt="Account Image" />
+                </div>
+              </a>
+              <a href="#">
+                <div class="account-name-title">
+                  <div class="account-name">
+                    <p>John Doe</p>
+                  </div>
+                  <div class="account-title">
+                    <p>Cashier</p>
+                  </div>
+                </div>
+              </a>
+              <div class="logout-icon">
+                <a href="login.html">
+                  <img src="assets/logout-cashier.png" alt="Logout Icon" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <aside class="sidebar" id="sidebar">
+        <!-- Logo Section -->
+        <section class="logo-section">
+            <div class="logo-and-minimize">
+              <!-- Logo -->
+              <div class="logo">
+                <a href="cashier.html">
+                  <img src="assets/padipos-logo.png" alt="Cashier Logo" />
+                </a>
+              </div>
+              <!-- Minimize Sidebar -->
+              <div class="minimize-sidebar">
+                <img src="assets/arrow-left.png" alt="Minimize Sidebar Icon" />
+              </div>
+            </div>
+        </section>
+
+        <!-- Cashier Section -->
+        <section class="cashier-section">
+            <div class="cashier-icon">
+              <a href="cashier.html">
+                <img
+                  src="assets/shop-icon.png"
+                  alt="Cashier Section Icon"
+                />
+              </a>
+            </div>
+            <div class="cashier-text">
+              <a href="cashier.html">
+                <p>Cashier</p>
+              </a>
+            </div>
+        </section>
+
+        <!-- Sales Report Section -->
+        <section class="sales-report-section" id="sales-report-section">
+            <div class="sales-report-icon">
+              <a href="sales_report.html">
+                <img src="assets/report-icon-selected.png" alt="Cashier Section Icon" />
+              </a>
+            </div>
+            <div class="sales-report-text">
+              <a href="sales_report.html">
+                <p>Sales Report</p>
+              </a>
+            </div>
+            <div class="side-bar-selected">
+              <img
+                src="assets/side-bar-selected.png"
+                alt="Side Bar Selected Icon"
+              />
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-section">
+            <div class="settings-icon">
+              <a href="settings.html">
+                <img
+                  src="assets/settings-icon.png"
+                  alt="Cashier Section Icon"
+                />
+              </a>
+            </div>
+            <div class="settings-text">
+              <a href="settings.html">
+                <p>Settings</p>
+              </a>
+            </div>
+        </section>
+      </aside>
+      <section class="main-content">
+        <div class="container">
+          <div class="sales-report-main">
+            <div class="sales-report-title">
+              <h1>Sales Report</h1>
+              <div class="report-time">
+                <p>Today, <span id="reportTime"></span></p>
+              </div>
+            </div>
+            <div class="sales-report-summary">
+              <div class="report-summary-container">
+                <!-- Total Order -->
+                <div class="report-summary-card">
+                  <div class="total-order-summary">
+                    <div class="total-order-text">
+                      <h1>Total Order</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/total-order-icon.png" alt="Total Order Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>100</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Total Omzet -->
+                <div class="report-summary-card">
+                  <div class="total-omzet-summary">
+                    <div class="total-omzet-text">
+                      <h1>Total Omzet</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/total-omzet-icon.png" alt="Total Omzet Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>Rp. 2.000.000</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- All Menu Sales -->
+                <div class="report-summary-card">
+                  <div class="menu-sales-summary">
+                    <div class="menu-sales-text">
+                      <h1>All Menu Sales</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/all-menu-icon.png" alt="All Menu Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>100</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Foods -->
+                <div class="report-summary-card">
+                  <div class="foods-summary">
+                    <div class="foods-text">
+                      <h1>Foods</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/foods-summary-icon.png" alt="Foods Summary Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>25</h1>
+                      </div>
+                    </div>
+                    <div class="summary-card-detail">
+                      <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
+                    </div>
+                  </div>
+                </div>
+                <!-- Benerages -->
+                <div class="report-summary-card">
+                  <div class="beverages-summary">
+                    <div class="beverages-text">
+                      <h1>Beverages</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/beverages-summary-icon.png" alt="Beverages Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>50</h1>
+                      </div>
+                    </div>
+                    <div class="summary-card-detail">
+                      <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
+                    </div>
+                  </div>
+                </div>
+                <!-- Desserts -->
+                <div class="report-summary-card">
+                  <div class="desserts-summary">
+                    <div class="desserts-text">
+                      <h1>Dessert</h1>
+                    </div>
+                    <div class="summary-icon-number">
+                      <div class="summary-card-icon">
+                        <img src="assets/dessert-summary-icon.png" alt="Total Order Icon">
+                      </div>
+                      <div class="summary-card-number">
+                        <h1>50</h1>
+                      </div>
+                    </div>
+                    <div class="summary-card-detail">
+                      <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sales-report-data">
+              <div class="report-data-header">
+                <div class="report-data-search">
+                  <div class="data-search-start">
+                    <h1>Start</h1>
+                    <input type="text" name="search-start" class="date-input" id="searchStart" placeholder="Select date">
+                  </div>
+                  <div class="data-search-finish">
+                    <h1>Finish</h1>
+                    <input type="text" name="search-finish" class="date-input" id="searchFinish" placeholder="Select date">
+                  </div>
+                  <div class="data-search-category">
+                    <h1>Category</h1>
+                    <div class="dropdown-button" id="categoryDropdown">
+                      <a href="" class="dropdown-toggle">
+                          <span class="selected-text">Select Category</span>
+                          <img src="assets/arrow-down.png" alt="Dropdown Icon" class="dropdown-arrow">
+                      </a>
+                      <ul class="dropdown-item">
+                          <!-- <li>Select Category</li> -->
+                          <li>Food</li>
+                          <li>Beverages</li>
+                          <li>Dessert</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="data-search-order-type">
+                    <h1>Order Type</h1>
+                    <div class="dropdown-button" id="orderTypeDropdown">
+                      <a href="" class="dropdown-toggle">
+                          <span class="selected-text">Select Order type</span>
+                          <img src="assets/arrow-down.png" alt="Dropdown Icon" class="dropdown-arrow">
+                      </a>
+                      <ul class="dropdown-item">
+                          <!-- <li>Select Category</li> -->
+                          <li>Dine In</li>
+                          <li>Take Away</li>
+                      </ul>
+                    </div>
+                    <!-- <input type="text" name="seach-start" id="searchOrderType"> -->
+                  </div>
+                  <div class="data-search-button">
+                    <button>Search</button>
+                  </div>
+                </div>
+                <div class="data-download">
+                  <img src="assets/data-download-icon.png" alt="Data Download Icon">
+                </div>
+              </div>
+              <div class="report-data-main">
+                <table>
+                  <tr>
+                    <th><p>No Order</p></th>
+                    <th><p>Order Date</p></th>
+                    <th><p>Order Type</p></th>
+                    <th><p>Category</p></th>
+                    <th><p>Customer Name</p></th>
+                    <th><p>Detail</p></th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>ORDR#1234567890</p>
+                    </td>
+                    <td>
+                      <p>Rabu, 18/09/2024 12:30:00</p>
+                    </td>
+                    <td>
+                      <p>Dine-in</p>
+                    </td>
+                    <td>
+                      <p>Foods</p>
+                    </td>
+                    <td>
+                      <p>Anisa</p>
+                    </td>
+                    <td>
+                      <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
+                    </td>
+                  </tr>
+                </table>
+                <div class="data-entries-pagination">
+                  <div class="show-data-entries">
+                    <p>Show: </p>
+                    <div class="dropdown-button" id="entriesDropdown">
+                      <a href="" class="dropdown-toggle">
+                        <span class="selected-text">10</span>
+                        <img src="assets/arrow-down.png" alt="Dropdown Icon" class="dropdown-arrow">
+                      </a>
+                      <ul class="dropdown-item">
+                        <li>10</li>
+                        <li>20</li>
+                        <li>30</li>
+                      </ul>
+                    </div>
+                    <p> Entries</p>
+                  </div>
+                  <div class="recent-data-pagination">
+                    <div class="pagination-btn pagination-prev is-disabled">
+                      <img src="assets/previous-pagination-icon.png" alt="Pagination Previous Icon">
+                    </div>
+
+                    <div class="pagination-page is-active">
+                      <p>1</p>
+                    </div>
+                    <div class="pagination-page">
+                      <p>2</p>
+                    </div>
+                    <div class="pagination-page">
+                      <p>3</p>
+                    </div>
+
+                    <span class="pagination-ellipsis">...</span>
+
+                    <div class="pagination-btn pagination-next">
+                      <img src="assets/next-pagination-icon.png" alt="Pagination Next Icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+    <footer></footer>
+
+    <!-- Modal Order Archive -->
+    <div class="modal-overlay" id="orderArchiveModal" style="display: none;">
+      <div class="order-archive-modal">
+        <div class="modal-header" id="modal-order-archive">
+          <h1>Order Archive</h1>
+          <span class="modal-close" id="closeOrderArchive">&times;</span>
+        </div>
+
+        <!-- Search Section -->
+        <div class="order-archive-search">
+          <input type="text" id="searchArchiveInput" placeholder="Enter the keyword here..." />
+
+          <select id="archiveTypeFilter">
+            <option value="">Select type order</option>
+            <option value="Dine In">Dine In</option>
+            <option value="Take Away">Take Away</option>
+          </select>
+
+          <button id="searchArchiveBtn">Search</button>
+        </div>
+
+          <!-- Archive List -->
+          <div class="order-archive-list" id="orderArchiveList">
+
+          </div>
+      </div>
+    </div>
+
+    <!-- <script type="module" src="js/main.js"></script> -->
+    <script src="cashier.js"></script>
+    <script src="sales_report.js"></script>
+    <script>
+      // Date Input Data Search
+      $(document).ready(function () {
+        $(".date-input").datepicker({
+          dateFormat: "dd-mm-yy"
+        });
+
+        console.log("jQuery & jQuery UI Loaded");
+      });
+    </script>
+    <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+
   </body>
 </html>

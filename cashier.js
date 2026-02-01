@@ -1,3 +1,31 @@
+let isCashierPage = false;
+let isSalesReportPage = false;
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     isCashierPage = document.body.classList.contains("page-cashier");
+//     isSalesReportPage = document.body.classList.contains("page-sales-report");
+
+//     console.log("isCashierPage:", isCashierPage);
+//     console.log("isSalesReportPage:", isSalesReportPage);
+
+//     initArchiveForSalesReport();
+// });
+
+console.log("cashier.js LOADED");
+
+function on(el, event, handler) {
+    if (el) el.addEventListener(event, handler);
+}
+
+// Simpan data ke Local Storage
+function getArchivedOrders() {
+    return JSON.parse(localStorage.getItem("archivedOrders")) || [];
+}
+
+function saveArchivedOrders(data) {
+    localStorage.setItem("archivedOrders", JSON.stringify(data));
+}
+
 // Generate ID
 function generateOrderId() {
     const random = Math.floor(10000000 + Math.random() * 90000000);
@@ -18,27 +46,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Modal Order Archive
-let archivedOrders = [];
+let archivedOrders = getArchivedOrders();
 const orderArchiveModal = document.getElementById("orderArchiveModal");
 const closeOrderArchive = document.getElementById("closeOrderArchive");
 
+// function openArchiveModal() {
+//     renderArchiveList(archivedOrders);
+//     orderArchiveModal.style.display = "flex";
+// }
+
 function openArchiveModal() {
+    if (!orderArchiveModal) return;
+
+    archivedOrders = getArchivedOrders(); 
     renderArchiveList(archivedOrders);
+
     orderArchiveModal.style.display = "flex";
 }
 
-closeOrderArchive.addEventListener("click", () => {
-    orderArchiveModal.style.display = "none";
-});
+if (closeOrderArchive && orderArchiveModal) {
+    closeOrderArchive.addEventListener("click", () => {
+        orderArchiveModal.style.display = "none";
+    });
+}
+
+// closeOrderArchive.addEventListener("click", () => {
+//     orderArchiveModal.style.display = "none";
+// });
 
 function renderArchiveList(data) {
     const list = document.getElementById("orderArchiveList");
+    if (!list) return;
     list.innerHTML = "";
 
-    if (data.length === 0) {
+    if (!data || data.length === 0) {
         list.innerHTML = "<p>No archived orders</p>";
         return;
-    }
+    };
 
     data.forEach((order, index) => {
         const card = document.createElement("div");
@@ -86,21 +130,23 @@ function filterArchiveOrders() {
     renderArchiveList(filteredData);
 };
 
+const orderArchiveList = document.getElementById("orderArchiveList");
 
+if (orderArchiveList) {
+    orderArchiveList.addEventListener("click", function (e) {
+        const useBtn = e.target.closest(".archive-use");
+        if (!useBtn) return;
 
-document.getElementById("orderArchiveList").addEventListener("click", function (e) {
-    const useBtn = e.target.closest(".archive-use");
-    if (!useBtn) return;
+        e.preventDefault();
+        e.stopPropagation();
 
-    e.preventDefault();
-    e.stopPropagation();
+        const index = useBtn.dataset.index;
+        const archiveData = archivedOrders[index];
+        if (!archiveData) return;
 
-    const index = useBtn.dataset.index;
-    const archiveData = archivedOrders[index];
-    if (!archiveData) return;
-
-    restoreArchiveToOrder(archiveData);
-});
+        restoreArchiveToOrder(archiveData);
+    });
+}
 
 const customerInput = document.getElementById("customer-name");
 
@@ -156,28 +202,26 @@ function formatDate(date) {
     });
 }
 
-// document.getElementById("searchArchiveBtn").addEventListener("click", () => {
-//     const keyword = document.getElementById("searchArchiveInput").value.toLowerCase();
-//     const type = document.getElementById("archiveTypeFilter").value;
+// document.getElementById("searchArchiveInput").addEventListener("input", filterArchiveOrders);
+const searchArchiveInput = document.getElementById("searchArchiveInput");
+const archiveTypeFilter = document.getElementById("archiveTypeFilter");
+const searchArchiveBtn = document.getElementById("searchArchiveBtn");
 
-//     const filtered = archivedOrders.filter(order => {
-//         const matchKeyword =
-//         order.orderId.toLowerCase().includes(keyword) ||
-//         order.customer.toLowerCase().includes(keyword);
+if (searchArchiveInput) {
+    searchArchiveInput.addEventListener("input", filterArchiveOrders);
+}
 
-//         const matchType = type ? order.type === type : true;
+if (archiveTypeFilter) {
+    archiveTypeFilter.addEventListener("change", filterArchiveOrders);
+}
 
-//         return matchKeyword && matchType;
-//     });
+if (searchArchiveBtn) {
+    searchArchiveBtn.addEventListener("click", filterArchiveOrders);
+}
 
-//     renderArchiveList(filtered);
-// });
+// document.getElementById("archiveTypeFilter").addEventListener("change", filterArchiveOrders);
 
-document.getElementById("searchArchiveInput").addEventListener("input", filterArchiveOrders);
-
-document.getElementById("archiveTypeFilter").addEventListener("change", filterArchiveOrders);
-
-document.getElementById("searchArchiveBtn").addEventListener("click", filterArchiveOrders);
+// document.getElementById("searchArchiveBtn").addEventListener("click", filterArchiveOrders);
 
 // Modal Detail Menu
 const menuModal = document.getElementById("menuModal");
@@ -188,25 +232,28 @@ const modalDesc = document.getElementById("modalMenuDescription");
 const modalPrice = document.getElementById("modalMenuPrice");
 const modalBadge = document.getElementById("modalMenuBadge");
 
-document.querySelectorAll(".detail-menu-icon").forEach(icon => {
-    icon.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+// document.querySelectorAll(".detail-menu-icon").forEach(icon => {
+//     icon.addEventListener("click", function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
 
-    const card = this.closest(".menu-list-card");
-    modalName.innerText = card.querySelector(".menu-name h1").innerText;
-    modalDesc.innerText = card.querySelector(".menu-description p").innerText;
-    modalPrice.innerText = card.querySelector(".menu-price span").innerText;
-    modalImage.src = card.querySelector(".menu-image img").src;
-    modalBadge.innerText = card.querySelector(".category-badge p").innerText;
+//     const card = this.closest(".menu-list-card");
+//     modalName.innerText = card.querySelector(".menu-name h1").innerText;
+//     modalDesc.innerText = card.querySelector(".menu-description p").innerText;
+//     modalPrice.innerText = card.querySelector(".menu-price span").innerText;
+//     modalImage.src = card.querySelector(".menu-image img").src;
+//     modalBadge.innerText = card.querySelector(".category-badge p").innerText;
 
-    menuModal.style.display = "flex";
+//     menuModal.style.display = "flex";
+//     return;
+//     });
+// });
+
+if (closeModal && menuModal) {
+    closeModal.addEventListener("click", () => {
+        menuModal.style.display = "none";
     });
-});
-
-closeModal.addEventListener("click", () => {
-    menuModal.style.display = "none";
-});
+}
 
 window.addEventListener("click", e => {
     if (e.target === menuModal) {
@@ -244,10 +291,12 @@ document.addEventListener("click", function (e) {
     editOrderModal.style.display = "flex";
 });
 
-closeEditModal.addEventListener("click", () => {
-    editOrderModal.style.display = "none";
-    activeEditOrderId = null;
-});
+if (closeEditModal && editOrderModal) {
+    closeEditModal.addEventListener("click", () => {
+        editOrderModal.style.display = "none";
+        activeEditOrderId = null;
+    });
+}
 
 window.addEventListener("click", (e) => {
     if (e.target === editOrderModal) {
@@ -256,54 +305,67 @@ window.addEventListener("click", (e) => {
     }
 });
 
-submitEditBtn.addEventListener("click", () => {
-    if (!activeEditOrderId) return;
+if (submitEditBtn && editOrderModal) {
+    submitEditBtn.addEventListener("click", () => {
+        if (!activeEditOrderId) return;
 
-    const activeOrders = orders[currentOrderType];
-    const item = activeOrders[activeEditOrderId];
-    if (!item) return;
+        const activeOrders = orders[currentOrderType];
+        const item = activeOrders[activeEditOrderId];
+        if (!item) return;
 
-    item.note = editNoteInput.value.trim();
+        item.note = editNoteInput.value.trim();
 
-    activeEditOrderId = null;
-    renderOrderList();
-    editOrderModal.style.display = "none";
-});
+        activeEditOrderId = null;
+        renderOrderList();
+        editOrderModal.style.display = "none";
+    });
+}
 
 // Category Menu Active and Counter Total Menu
 const categoryButtons = document.querySelectorAll(".category-menu > div");
 const menuCards = document.querySelectorAll(".menu-list-card");
 const totalMenuCount = document.getElementById("totalMenuCount");
 
+// function updateTotalMenu(count){
+//     totalMenuCount.innerText = `${count} Menu`;
+// }
+
 function updateTotalMenu(count){
+    if (!totalMenuCount) return;
     totalMenuCount.innerText = `${count} Menu`;
+};
+
+if (categoryButtons.length && menuCards.length) {
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.dataset.filter;
+
+            categoryButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+            button.classList.add("active");
+
+            let visibleCount = 0;
+
+            menuCards.forEach(card => {
+                const category = card.dataset.category;
+
+                if (filter === "all" || category === filter) {
+                    card.style.display = "block";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            updateTotalMenu(visibleCount);
+        });
+    });
 }
 
-categoryButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-
-        // Reset state berstatus active
-        categoryButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        let visibleCount = 0;
-
-        menuCards.forEach(card => {
-            const category = card.dataset.category;
-
-            if(filter === "all" || category === filter){
-                card.style.display = "block";
-                visibleCount++;
-            }else{
-                card.style.display = "none";
-            }
-        });
-        updateTotalMenu(visibleCount);
-    });
-});
-
-updateTotalMenu(menuCards.length);
+if (menuCards.length) {
+    updateTotalMenu(menuCards.length);
+}
 
 // List Order Section
 const orderListElement = document.getElementById("orderList");
@@ -325,13 +387,23 @@ let orders = {
     takeaway: {}
 };
 
-dineInBtn.addEventListener("click", () => {
-    setOrderType("dinein");
-});
+// dineInBtn.addEventListener("click", () => {
+//     setOrderType("dinein");
+// });
 
-takeAwayBtn.addEventListener("click", () => {
-    setOrderType("takeaway");
-});
+// takeAwayBtn.addEventListener("click", () => {
+//     setOrderType("takeaway");
+// });
+
+if (dineInBtn && takeAwayBtn) {
+    dineInBtn.addEventListener("click", () => {
+        setOrderType("dinein");
+    });
+
+    takeAwayBtn.addEventListener("click", () => {
+        setOrderType("takeaway");
+    });
+}
 
 function setOrderType(type){
     currentOrderType = type;
@@ -405,8 +477,6 @@ function renderOrderList(){
                         <strong>${item.name}</strong>
                         <span>${format(item.price)}</span>
                     </div>
-
-
                     
                     <div class="qty-and-edit">
                         <div class="order-edit">
@@ -473,38 +543,31 @@ function format(num){
 };
 
 // Add to Order Archive
-// document.querySelectorAll(".order-archive, .order-archive-icon").forEach(btn => {
-//     btn.addEventListener("click", function (e) {
-//         e.preventDefault();
-//         e.stopPropagation();
-
-//         saveOrderToArchive();
-//         openArchiveModal();
-//     });
-// });
 
 const openArchiveBtn = document.getElementById("openOrderArchive");
 
-openArchiveBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    openArchiveModal();
-});
+if (openArchiveBtn) {
+    openArchiveBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openArchiveModal();
+    });
+}
 
 const listOrderArchiveBtn = document.getElementById("listOrderArchive");
 
-listOrderArchiveBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+if (listOrderArchiveBtn) {
+    listOrderArchiveBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    // validasi agar archive yang kosong tidak masuk data
-    const activeOrders = orders[currentOrderType];
-    if (Object.keys(activeOrders).length === 0) return;
+        const activeOrders = orders[currentOrderType];
+        if (Object.keys(activeOrders).length === 0) return;
 
-    saveOrderToArchive();
-    openArchiveModal();
-});
+        saveOrderToArchive();
+        openArchiveModal();
+    });
+}
 
 function saveOrderToArchive(){
     const orderType = currentOrderType; // snapshot type
@@ -538,9 +601,13 @@ function saveOrderToArchive(){
     };
 
     archivedOrders.push(archiveData);
+    saveArchivedOrders(archivedOrders);
     renderArchiveList(archivedOrders);
 
     resetOrderAfterArchive();
+
+    cache = getArchivedOrders();
+    window.dispatchEvent(new Event("order:archived"));
 };
 
 function calculateTotal(orderType = currentOrderType) {
@@ -572,67 +639,123 @@ function clearCurrentOrder() {
 }
 
 // Dropdown Menu No Table List Order
+// const dropdown = document.getElementById("tableDropdown");
+// const toggle = dropdown.querySelector(".dropdown-toggle");
+// const items = dropdown.querySelectorAll(".dropdown-item li");
+// const selectedText = dropdown.querySelector(".selected-text");
+
+// // Munculkan Dropdown
+// toggle.addEventListener("click", function (e){
+//     e.preventDefault();
+//     dropdown.classList.toggle("active");
+// });
+
+// // Pilih Item Dropdown
+// items.forEach(item => {
+//     item.addEventListener("click", function (){
+//         selectedText.textContent = this.textContent;
+//         dropdown.classList.remove("active");
+//     });
+// });
+
+// // Tutup Dropdown Menu
+// document.addEventListener("click", function (e){
+//     if(!dropdown.contains(e.target)){
+//         dropdown.classList.remove("active");
+//     };
+// });
+
 const dropdown = document.getElementById("tableDropdown");
-const toggle = dropdown.querySelector(".dropdown-toggle");
-const items = dropdown.querySelectorAll(".dropdown-item li");
-const selectedText = dropdown.querySelector(".selected-text");
 
-// Munculkan Dropdown
-toggle.addEventListener("click", function (e){
-    e.preventDefault();
-    dropdown.classList.toggle("active");
-});
+if (dropdown) {
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+    const items = dropdown.querySelectorAll(".dropdown-item li");
+    const selectedText = dropdown.querySelector(".selected-text");
 
-// Pilih Item Dropdown
-items.forEach(item => {
-    item.addEventListener("click", function (){
-        selectedText.textContent = this.textContent;
-        dropdown.classList.remove("active");
+    toggle.addEventListener("click", function (e){
+        e.preventDefault();
+        dropdown.classList.toggle("active");
     });
-});
 
-// Tutup Dropdown Menu
-document.addEventListener("click", function (e){
-    if(!dropdown.contains(e.target)){
-        dropdown.classList.remove("active");
-    };
-});
+    items.forEach(item => {
+        item.addEventListener("click", function (){
+            selectedText.textContent = this.textContent;
+            dropdown.classList.remove("active");
+        });
+    });
 
+    document.addEventListener("click", function (e){
+        if(!dropdown.contains(e.target)){
+            dropdown.classList.remove("active");
+        }
+    });
+}
 
 // Modal Transaction Success
 const successModal = document.getElementById("successModal");
 const closeSuccessModal = document.getElementById("closeSuccessModal");
 
-payButton.addEventListener("click", () => {
-    const activeOrders = orders[currentOrderType];
+// payButton.addEventListener("click", () => {
+//     const activeOrders = orders[currentOrderType];
 
-    if (Object.keys(activeOrders).length === 0) return;
+//     if (Object.keys(activeOrders).length === 0) return;
 
-    const tableText = document.querySelector(".selected-text")?.innerText || "-";
+//     const tableText = document.querySelector(".selected-text")?.innerText || "-";
 
-    const nominalInput = document.getElementById("nominalInput");
-    const paid = parseInt(nominalInput.value.replace(/\D/g, "") || 0);
+//     const nominalInput = document.getElementById("nominalInput");
+//     const paid = parseInt(nominalInput.value.replace(/\D/g, "") || 0);
 
-    const subTotal = Object.values(activeOrders)
-        .reduce((sum, item) => sum + item.price * item.qty, 0);
+//     const subTotal = Object.values(activeOrders)
+//         .reduce((sum, item) => sum + item.price * item.qty, 0);
 
-    const tax = taxRate;
-    const total = subTotal + tax;
+//     const tax = taxRate;
+//     const total = subTotal + tax;
 
-    if (paid < total) {
-        alert("Nominal pembayaran kurang");
-        return;
-    }
+//     if (paid < total) {
+//         alert("Nominal pembayaran kurang");
+//         return;
+//     }
 
-    showSuccessModal({
-        activeOrders,
-        tableText,
-        subTotal,
-        tax,
-        total,
-        paid
+//     showSuccessModal({
+//         activeOrders,
+//         tableText,
+//         subTotal,
+//         tax,
+//         total,
+//         paid
+//     });
+// });
+
+if (payButton) {
+    payButton.addEventListener("click", () => {
+        const activeOrders = orders[currentOrderType];
+        if (Object.keys(activeOrders).length === 0) return;
+
+        const nominalInput = document.getElementById("nominalInput");
+        if (!nominalInput) return;
+
+        const paid = parseInt(nominalInput.value.replace(/\D/g, "") || 0);
+
+        const subTotal = Object.values(activeOrders)
+            .reduce((sum, item) => sum + item.price * item.qty, 0);
+
+        const tax = taxRate;
+        const total = subTotal + tax;
+
+        if (paid < total) {
+            alert("Nominal pembayaran kurang");
+            return;
+        }
+
+        showSuccessModal({
+            activeOrders,
+            subTotal,
+            tax,
+            total,
+            paid
+        });
     });
-});
+}
 
 function showSuccessModal({ activeOrders, subTotal, tax, total, paid }) {
     document.getElementById("receiptOrderId").innerText = currentOrderId;
@@ -659,8 +782,10 @@ function showSuccessModal({ activeOrders, subTotal, tax, total, paid }) {
                     <span id="priceQty">${format(item.price * item.qty)}</span>
                 </div>
                 <span id="qtyXPrice">${item.qty} x Rp ${item.price} </span>
+                <div class="note-receipt">
+                ${item.note ? `<small class="receipt-note">Catatan: ${item.note}</small>` : ""}
+                </div>
             </div>
-            ${item.note ? `<small class="receipt-note">Catatan: ${item.note}</small>` : ""}
         `;
 
         itemsContainer.appendChild(row);
@@ -680,10 +805,12 @@ function showSuccessModal({ activeOrders, subTotal, tax, total, paid }) {
     successModal.style.display = "flex";
 };
 
-closeSuccessModal.addEventListener("click", () => {
-    successModal.style.display = "none";
-    resetOrderAfterArchive(); // atau clearCurrentOrder()
-});
+if (closeSuccessModal && successModal) {
+    closeSuccessModal.addEventListener("click", () => {
+        successModal.style.display = "none";
+        resetOrderAfterArchive(); // atau clearCurrentOrder()
+    });
+}
 
 window.addEventListener("click", e => {
     if (e.target === successModal) {
@@ -943,8 +1070,69 @@ const menus = [
 
 const menuListElement = document.getElementById("menuList");
 
+if (menuListElement) {
+    menuListElement.addEventListener("click", function (e) {
+        // const detailBtn = e.target.closest(".detail-menu-icon");
+        if (e.target.closest(".detail-menu-icon") || e.target.closest(".detail-menu-icon a") || e.target.closest(".detail-menu-icon img")){
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            const card = e.target.closest(".menu-list-card");
+            if (!card) return;
+
+            modalName.innerText =
+                card.querySelector(".menu-name h1").innerText;
+
+            modalDesc.innerText =
+                card.querySelector(".menu-description p").innerText;
+
+            modalPrice.innerText =
+                card.querySelector(".menu-price span").innerText;
+
+            modalImage.src =
+                card.querySelector(".menu-image img").src;
+
+            modalBadge.innerText =
+                card.querySelector(".category-badge p").innerText;
+
+            menuModal.style.display = "flex";
+            return;
+        };
+        
+        const card = e.target.closest(".menu-list-card");
+        if (!card) return;
+
+        if (e.target.closest(".detail-menu-icon")) return;
+
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+        const price = parseInt(card.dataset.price);
+        const image = card.dataset.image;
+
+        const activeOrders = orders[currentOrderType];
+
+        if (activeOrders[id]) {
+            activeOrders[id].qty += 1;
+        } else {
+            activeOrders[id] = {
+                id,
+                name,
+                price,
+                image,
+                qty: 1,
+                note: ""
+            };
+        }
+
+        renderOrderList();
+    });
+};
+
 function renderMenuList(data) {
-            menuListElement.innerHTML = "";
+            // menuListElement.innerHTML = "";
+            if (menuListElement) {
+                menuListElement.innerHTML = "";
+            }
 
             data.forEach(menu => {
                 const card = document.createElement("div");
@@ -995,7 +1183,10 @@ function capitalize(text) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+        // renderMenuList(menus);
+        if (menuListElement) {
             renderMenuList(menus);
+        };
 });
 
 const categoryMenuButtons = document.querySelectorAll(".category-menu > div");
@@ -1014,33 +1205,6 @@ categoryMenuButtons.forEach(button => {
 
                 renderMenuList(filteredMenu);
             });
-});
-
-menuListElement.addEventListener("click", function (e) {
-            const card = e.target.closest(".menu-list-card");
-            if (!card) return;
-
-            const id = card.dataset.id;
-            const name = card.dataset.name;
-            const price = parseInt(card.dataset.price);
-            const image = card.dataset.image;
-
-            const activeOrders = orders[currentOrderType];
-
-            if (activeOrders[id]) {
-                activeOrders[id].qty += 1;
-            } else {
-                activeOrders[id] = {
-                    id,
-                    name,
-                    price,
-                    image,
-                    qty: 1,
-                    note: ""
-                };
-            }
-
-            renderOrderList();
 });
 
 const searchInput = document.getElementById("search");
@@ -1072,4 +1236,71 @@ searchInput.addEventListener("input", function () {
     }
 
     renderMenuList(filteredMenus);
+});
+
+// Kode Event untuk Trigger Archive Order di Halaman Lain
+if (isSalesReportPage) {
+    const openBtn = document.getElementById("openOrderArchive");
+    const modal = document.getElementById("orderArchiveModal");
+    const closeBtn = document.getElementById("closeOrderArchive");
+    const list = document.getElementById("orderArchiveList");
+
+    if (!openBtn || !modal || !list) {
+        console.warn("Archive elements missing");
+    } else {
+        openBtn.addEventListener("click", () => {
+            console.log("Order Archive CLICKED");
+
+            const archivedOrders =
+                JSON.parse(localStorage.getItem("archivedOrders")) || [];
+
+            list.innerHTML = "";
+
+            if (archivedOrders.length === 0) {
+                list.innerHTML = "<p>No archived orders</p>";
+            } else {
+                archivedOrders.forEach(order => {
+                    // const div = document.createElement("div");
+                    // div.className = "archive-card";
+                    // div.innerHTML = `
+                    //     <strong>${order.orderId}</strong>
+                    //     <div>${order.type}</div>
+                    //     <div>Rp ${Number(order.total).toLocaleString("id-ID")}</div>
+                    // `;
+                        const div = document.createElement("div");
+                        div.className = "archive-card";
+                        div.dataset.index = index;
+
+                        card.innerHTML = `
+                        <div class="archive-info">
+                            <span>No Order ${order.orderId} | ${order.type} | ${order.customer} | ${order.table}</span>
+                            <span class="archive-datetime">${formatDate(order.createdAt)}</span>
+                        </div>
+                        
+                        <div class="archive-total-and-use">
+                            <div class="archive-total">Rp ${format(Number(order.total))}</div>
+                            <div class="archive-use" data-index="${index}">
+                                <img src="assets/arrow-right.png" alt="Archive Use Icon">
+                            </div>
+                        </div>
+                        `;
+                    list.appendChild(div);
+                });
+            }
+
+            modal.style.display = "flex";
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM READY");
+
+    console.log("openOrderArchive:", document.getElementById("openOrderArchive"));
+    console.log("orderArchiveModal:", document.getElementById("orderArchiveModal"));
+    console.log("orderArchiveList:", document.getElementById("orderArchiveList"));
 });
