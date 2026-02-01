@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css" />
+
+    <!-- Google Font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="register-container">
+          <div class="register-content">
+            <!-- Logo -->
+            <div class="register-logo">
+              <img src="assets/login-logo.png" alt="Register Logo" />
+            </div>
+
+            <!-- Title -->
+            <div class="register-title">
+              <h1>Welcome!</h1>
+              <h2>Create your account here!</h2>
+            </div>
+
+            <!-- Form -->
+            <div class="register-form">
+              <div class="form-username">
+                <label>Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="form-email">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-password">
+                <label>Password</label>
+                <div class="password-wrapper">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <span class="toggle-password" onclick="togglePassword()">
+                    <img src="assets/eye-slash.png" alt="Show Password" />
+                  </span>
+                </div>
+              </div>
+
+              <div class="confirm-password">
+                <label>Confirm Password</label>
+                <div class="password-wrapper">
+                  <input
+                    type="password"
+                    name="confirm-password"
+                    id="confirm-password"
+                    placeholder="Confirm Password"
+                  />
+                  <span
+                    class="toggle-password"
+                    onclick="toggleConfirmPassword()"
+                  >
+                    <img src="assets/eye-slash.png" alt="Show Password" />
+                  </span>
+                </div>
+              </div>
+              <div class="form-button">
+                <a href="cashier.html">
+                  <button class="register">Register</button>
+                </a>
+              </div>
+              <div class="form-login">
+                <p>
+                  Already have an account?
+                  <span><a href="login.html" target="_self">Login</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function togglePassword() {
+        const input = document.getElementById("password");
+        input.type = input.type === "password" ? "text" : "password";
+      }
+      function toggleConfirmPassword() {
+        const inputConfirm = document.getElementById("confirm-password");
+        inputConfirm.type =
+          inputConfirm.type === "password" ? "text" : "password";
+      }
+    </script>
+  </body>
+</html>

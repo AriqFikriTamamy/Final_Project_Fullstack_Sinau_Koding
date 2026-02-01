@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+
+    <!-- Google Font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <div class="login-container">
+          <div class="login-content">
+            <!-- Logo -->
+            <div class="login-logo">
+              <img src="assets/login-logo.png" alt="Login Logo" />
+            </div>
+            <!-- Title -->
+            <div class="login-title">
+              <h1>Welcome Back!</h1>
+              <h2>Please enter your username and password here!</h2>
+            </div>
+            <!-- Form -->
+            <div class="login-form">
+              <div class="form-username">
+                <label>Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="form-password">
+                <label>Password</label>
+                <div class="password-wrapper">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <span class="toggle-password" onclick="togglePassword()">
+                    <img src="assets/eye-slash.png" alt="Show Password" />
+                  </span>
+                </div>
+                <div class="forget-password">
+                  <a href="reset_password.html">
+                    <p>Forget Password?</p>
+                  </a>
+                </div>
+              </div>
+              <div class="form-button">
+                <a href="cashier.html">
+                  <button class="login">Login</button>
+                </a>
+              </div>
+              <div class="form-register">
+                <p>
+                  Don't have an account?
+                  <span
+                    ><a href="register.html" target="_self">Register</a></span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function togglePassword() {
+        const input = document.getElementById("password");
+        input.type = input.type === "password" ? "text" : "password";
+      }
+    </script>
+  </body>
+</html>
