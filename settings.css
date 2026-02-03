@@ -1,0 +1,410 @@
+@import url(modal.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+}
+html body{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    background-color: #F7F7F7;
+}
+
+html body header{
+    width: 100%;
+    height: 80px;
+    margin-left: 220px;
+    position: absolute;
+    z-index: 10;
+}
+
+body header .header-container{
+    /* width: 1360px; */
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+}
+
+header .header-container nav{
+    display: flex;
+    flex-direction: row;
+    /* justify-content:space-between; */
+}
+
+.header-container nav .search-bar{
+    margin-left: 20px;
+    margin-top: 19px;
+    /* padding: 12px; */
+}
+
+nav .search-bar .search-bar-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    /* position: absolute;
+    left: 12px;
+    top: 18px; */
+    /* bottom: 13px; */
+    margin-left: 12px;
+    /* margin-top: 13px; */
+    margin-bottom: 13px;
+}
+
+nav .search-bar input{
+    width: 500px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+    background-image: url(assets/search-normal.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 16px 16px;
+}
+
+nav .search-bar input[type=text]:focus{
+    border-color: #007bff;
+    color: #007bff;
+    outline: none;
+}
+
+nav .search-bar input:not(:placeholder-shown){
+    background-image: none;
+    padding-left: 10px;
+}
+
+nav .search-bar input::placeholder{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    padding-left: 38px;
+}
+
+.header-container nav .archive-and-account-container{
+    display: flex;
+    flex-direction: row;
+    row-gap: 50px;
+    justify-content: flex-end;
+    /* align-items: center; */
+    cursor: pointer;
+}
+
+nav .archive-and-account-container .order-archive{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 113px;
+    height: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 796px;
+}
+
+.archive-and-account-container .order-archive .order-archive-logo{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.order-archive .order-archive-logo img{
+    width: 18px;
+    height: 18px;
+}
+
+.archive-and-account-container .order-archive .order-archive-text{
+    color: #787878;
+}
+
+.order-archive .order-archive-text p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+nav .archive-and-account-container .navbar-account{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 151px;
+    margin-left: 50px;
+}
+
+.archive-and-account-container .navbar-account .account-image{
+    margin-left: 50px;
+    border-radius: 100px;
+}
+
+.navbar-account .account-image img{
+    width: 50px;
+    height: 50px;
+}
+
+.archive-and-account-container .navbar-account a{
+    text-decoration: none;
+}
+
+.archive-and-account-container .navbar-account .account-name-title{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.navbar-account .account-name-title .account-name{
+    display: flex;
+    flex-direction: row;
+    line-height: 18px;
+    color: #000000;
+    width: 51px;
+}
+
+.account-name-title .account-name p{
+    font-weight: 500;
+    font-size: 12px;
+    /* letter-spacing: 0; */
+}
+
+.navbar-account .account-name-title .account-title{
+    line-height: 15px;
+    color: #787878;
+}
+
+.account-name-title .account-title p{
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.archive-and-account-container .navbar-account .logout-icon{
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.logout-icon a img{
+    width: 20px;
+    height: 20px;
+}
+
+html body main{
+    display: flex;
+    /* flex-direction: row; */
+    /* width: 100%; */
+    max-width: 100%;
+    height: auto;
+}
+
+body main .sidebar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    min-width: 210px;
+    height: 1160px;
+    /* height: auto; */
+    z-index: 100;
+    padding-top: 15px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+}
+
+.sidebar .logo-section .logo-and-minimize{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.logo-and-minimize .logo img{
+    width: 130px;
+    height: 50px;
+}
+
+.logo-section .logo-and-minimize .minimize-sidebar{
+    margin-left: 29px;
+    cursor: pointer;
+}
+
+.logo-and-minimize .minimize-sidebar img{
+    width: 26px;
+    height: 26px;
+}
+
+main .sidebar .cashier-section{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.sidebar .cashier-section .cashier-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.cashier-section .cashier-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.sidebar .cashier-section .cashier-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    margin-left: 12px;
+}
+
+.cashier-section .cashier-text a{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text a:visited{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text a:link{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.cashier-section .cashier-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+main .sidebar .sales-report-section{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.sidebar .sales-report-section .sales-report-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.sales-report-section .sales-report-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.page-settings .sales-report-section .sales-report-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #C4C4C4;
+    margin-left: 12px;
+}
+
+.page-settings .sales-report-text a{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.page-settings .sales-report-text a:visited{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.page-settings .sales-report-text a:link{
+    color: #C4C4C4;
+    text-decoration: none;
+}
+
+.sales-report-section .sales-report-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+main .sidebar .settings-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.sidebar .settings-section .settings-icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.settings-section .settings-icon img{
+    width: 26px;
+    height: 26px;
+    margin: 7px;
+}
+
+.sidebar .settings-section .settings-text{
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #3572EF;
+    margin-left: 12px;
+}
+
+.settings-section .settings-text a{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.settings-section .settings-text a:visited{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.settings-section .settings-text a:link{
+    color: #3572EF;
+    text-decoration: none;
+}
+
+.settings-section .settings-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.settings-section .settings-text p{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.sidebar .settings-section .side-bar-selected{
+    margin-left: 68px;
+}
+
+.settings-section .side-bar-selected img{
+    width: 3px;
+    height: 30px;
+}
+
+body main .main-content{
+    width: 100%;
+}
+
+main .main-content .container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 20px;
+}
