@@ -37,12 +37,12 @@
             </div>
             <!-- Navbar Account -->
             <div class="navbar-account">
-              <a href="#">
+              <a href="settings.html">
                 <div class="account-image">
                   <img src="assets/account-image.png" alt="Account Image" />
                 </div>
               </a>
-              <a href="#">
+              <a href="settings.html">
                 <div class="account-name-title">
                   <div class="account-name">
                     <p>John Doe</p>
@@ -53,7 +53,7 @@
                 </div>
               </a>
               <div class="logout-icon">
-                <a href="login.html">
+                <a href="index.html">
                   <img src="assets/logout-cashier.png" alt="Logout Icon" />
                 </a>
               </div>
@@ -207,12 +207,12 @@
                         <h1>25</h1>
                       </div>
                     </div>
-                    <div class="summary-card-detail">
+                    <div class="summary-card-detail" id="foodsSummary">
                       <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
                     </div>
                   </div>
                 </div>
-                <!-- Benerages -->
+                <!-- Beverages -->
                 <div class="report-summary-card">
                   <div class="beverages-summary">
                     <div class="beverages-text">
@@ -226,7 +226,7 @@
                         <h1>50</h1>
                       </div>
                     </div>
-                    <div class="summary-card-detail">
+                    <div class="summary-card-detail" id="beveragesSummary">
                       <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
                     </div>
                   </div>
@@ -235,7 +235,7 @@
                 <div class="report-summary-card">
                   <div class="desserts-summary">
                     <div class="desserts-text">
-                      <h1>Dessert</h1>
+                      <h1>Desserts</h1>
                     </div>
                     <div class="summary-icon-number">
                       <div class="summary-card-icon">
@@ -245,7 +245,7 @@
                         <h1>50</h1>
                       </div>
                     </div>
-                    <div class="summary-card-detail">
+                    <div class="summary-card-detail" id="dessertsSummary">
                       <img src="assets/summary-detail-icon.png" alt="Summary Detail Icon">
                     </div>
                   </div>
@@ -297,8 +297,8 @@
                     <button>Search</button>
                   </div>
                 </div>
-                <div class="data-download">
-                  <img src="assets/data-download-icon.png" alt="Data Download Icon">
+                <div class="data-export" id="dataExport">
+                  <img src="assets/data-export-icon.png" alt="Data Export Icon">
                 </div>
               </div>
               <div class="report-data-main">
@@ -327,7 +327,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -347,7 +347,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -367,7 +367,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -387,7 +387,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -407,7 +407,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -427,7 +427,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -447,7 +447,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -467,7 +467,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -487,7 +487,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -507,7 +507,7 @@
                     <td>
                       <p>Anisa</p>
                     </td>
-                    <td>
+                    <td class="detail-order open-detail-modal">
                       <img src="assets/detail-data-icon.png" alt="Detail Data Icon">
                     </td>
                   </tr>
@@ -558,6 +558,471 @@
       </div>
     </main>
     <footer></footer>
+
+    <!-- Modal Export Data Button -->
+    <div class="modal-overlay" id="exportDataModal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <div class="modal-title">
+            <h1>Detail Menu</h1>
+          </div> -->
+          <!-- <span class="modal-close" id="closeModalExport">&times;</span> -->
+        </div>
+
+        <div class="modal-body">
+          <!-- <img id="modalMenuImage" src="" alt="Menu Image" />
+          <div class="category-badge">
+            <p class="badge-text" id="modalMenuBadge">Menu Badge</p>
+          </div>
+          <h2 id="modalMenuName">Menu Name</h2>
+          <p id="modalMenuDescription"></p>
+          <p class="modal-price"><span id="modalMenuPrice"></span> / portion</p> -->
+          <div class="export-excel" id="exportExcel">
+            <a href="sales_report.html">
+              <p>Export Excel</p>
+            </a>
+          </div>
+          <hr>
+          <div class="export-pdf" id="exportPDF">
+            <a href="sales_report.html">
+              <p>Export PDF</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Detail Foods Summary -->
+    <div class="modal-overlay" id="foodsDetailSummary" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h1>Foods</h1>
+          </div>
+          <span class="modal-close" id="closeModalFoods">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="foods-modal-search">
+            <input type="text" name="foods-summary-search" id="foodsSummarySearch" placeholder="Enter the keyword here...">
+          </div>
+          <div class="modal-data">
+            <table class="foods-modal-table">
+              <tr class="modal-table-header">
+                <th id="menuName">
+                  <h1>Menu Name</h1>
+                </th>
+                <th id="totalSales">
+                  <h1>Total Sales</h1>
+                </th>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Gado-Gado Spesial</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">10</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Ketoprak</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">5</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Siomay</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">3</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Batagor</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Bakso</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Mie Ayam</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Soto Ayam</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">1</p>
+                </td>
+              </tr>
+              <tr class="foods-table-data">
+                <td>
+                  <p class="foods-name-data">Soto Sapi</p>
+                </td>
+                <td>
+                  <p class="foods-sales-data">0</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Detail Beverages Summary -->
+    <div class="modal-overlay" id="beveragesDetailSummary" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h1>Beverages</h1>
+          </div>
+          <span class="modal-close" id="closeModalBeverages">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="beverages-modal-search">
+            <input type="text" name="beverages-summary-search" id="beveragesSummarySearch" placeholder="Enter the keyword here...">
+          </div>
+          <div class="modal-data">
+            <table class="beverages-modal-table">
+              <tr class="modal-table-header">
+                <th id="menuName">
+                  <h1>Menu Name</h1>
+                </th>
+                <th id="totalSales">
+                  <h1>Total Sales</h1>
+                </th>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Ice Tea</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">10</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Coffee</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">5</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Matcha Latte</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">3</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Milkshake</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Juice</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Ice Chocolate</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Soda</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">1</p>
+                </td>
+              </tr>
+              <tr class="beverages-table-data">
+                <td>
+                  <p class="beverages-name-data">Mineral Water</p>
+                </td>
+                <td>
+                  <p class="beverages-sales-data">0</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Detail Desserts Summary -->
+    <div class="modal-overlay" id="dessertsDetailSummary" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h1>Desserts</h1>
+          </div>
+          <span class="modal-close" id="closeModalDesserts">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="desserts-modal-search">
+            <input type="text" name="desserts-summary-search" id="dessertsSummarySearch" placeholder="Enter the keyword here...">
+          </div>
+          <div class="modal-data">
+            <table class="desserts-modal-table">
+              <tr class="modal-table-header">
+                <th id="menuName">
+                  <h1>Menu Name</h1>
+                </th>
+                <th id="totalSales">
+                  <h1>Total Sales</h1>
+                </th>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Ice Cream</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">10</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Smoothie</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">5</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Waffle</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">3</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Donut</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Tiramisu</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Brownies</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Pancake</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">1</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Pudding</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">0</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Detail Transaction -->
+    <div class="modal-overlay" id="detailTransactionModal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <div class="modal-title">
+            <h1>Desserts</h1>
+          </div> -->
+          <span class="modal-close" id="closeModalDetail">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="transaction-modal-container">
+            <div class="transaction-modal-header">
+              <div class="transaction-header-title">
+                <h1>Transaction Detail</h1>
+              </div>
+              <!-- <div class="transaction-header-title">
+                <h1>Transaction Detail</h1>
+              </div> -->
+            </div>
+            <div class="transaction-modal-main">
+              <div class="transaction-main-container">
+                <div class="transaction-main-detail">
+                  <div class="transaction-detail-summary">
+                    <p>No Order <span>ORDR#1234567890</span></p>
+                    <p>Order Date <span>Rabu, 18/09/2024 12:30:00</span></p>
+                    <p>Customer Name <span>Anisa</span></p>
+                    <p class="order-status">Take Away</p>
+                  </div>
+                  <hr>
+                  <div class="transaction-detail-pricing">
+                    <div class="menu-name-price">
+                      <h1>Gado Gado Spesial</h1>
+                      <h2>1 x Rp. <span>20.000</span></h2>
+                    </div>
+                    <h1 class="total-item-price">Rp. <span>20.000</span></h1>
+                  </div>
+                  <hr class="border-dashed">
+                  <div class="transaction-subtotal-tax">
+                    <div class="transaction-sub-total">
+                      <p>Sub Total</p>
+                      <p class="subtotal-price">Rp. <span>20.000</span></p>
+                    </div>
+                    <div class="transaction-tax">
+                      <p>Tax</p>
+                      <p class="tax-price">Rp. <span>5.000</span></p>
+                    </div>
+                  </div>
+                  <hr class="border-dashed">
+                  <div class="transaction-payment-summary">
+                    <div class="total-payment">
+                      <h1>Total</h1>
+                      <p>Rp. <span>25.000</span></p>
+                    </div>
+                    <div class="cash-received">
+                      <h2>Diterima</h2>
+                      <p>Rp. <span>50.000</span></p>
+                    </div>
+                    <div class="cash-return">
+                      <h2>Kembalian</h2>
+                      <p>Rp. <span>25.000</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="desserts-modal-search">
+            <input type="text" name="desserts-summary-search" id="dessertsSummarySearch" placeholder="Enter the keyword here...">
+          </div>
+          <div class="modal-data">
+            <table class="desserts-modal-table">
+              <tr class="modal-table-header">
+                <th id="menuName">
+                  <h1>Menu Name</h1>
+                </th>
+                <th id="totalSales">
+                  <h1>Total Sales</h1>
+                </th>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Ice Cream</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">10</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Smoothie</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">5</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Waffle</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">3</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Donut</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Tiramisu</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Brownies</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">2</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Pancake</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">1</p>
+                </td>
+              </tr>
+              <tr class="desserts-table-data">
+                <td>
+                  <p class="desserts-name-data">Pudding</p>
+                </td>
+                <td>
+                  <p class="desserts-sales-data">0</p>
+                </td>
+              </tr>
+            </table>
+          </div> -->
+        </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Modal Order Archive -->
     <div class="modal-overlay" id="orderArchiveModal" style="display: none;">

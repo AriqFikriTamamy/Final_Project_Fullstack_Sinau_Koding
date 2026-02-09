@@ -71,6 +71,32 @@ if (dropdownOrderType) {
     });
 };
 
+// Modal Export Data Button
+const exportDataModal = document.getElementById("exportDataModal");
+const openModal = document.getElementById("dataExport");
+const closeModalExport = document.getElementById("closeModalExport");
+const exportExcel = document.getElementById("exportExcel")
+const exportPDF = document.getElementById("exportPDF")
+
+if(exportDataModal && openModal){
+    openModal.addEventListener("click", () => {
+
+        exportDataModal.style.display = "flex";
+    })
+}
+
+if (closeModalExport && exportDataModal) {
+    closeModalExport.addEventListener("click", () => {
+        exportDataModal.style.display = "none";
+    });
+}
+
+window.addEventListener("click", e => {
+    if (e.target === exportDataModal) {
+        exportDataModal.style.display = "none";
+    }
+});
+
 // Dropdown Show Data Entries
 const entriesDropdown = document.getElementById("entriesDropdown");
 
@@ -180,3 +206,165 @@ function changePage(page) {
 }
     renderPagination();
 });
+
+// Modal Detail Foods Summary
+const foodsDetailSummary = () => {
+    const foodsSummaryModal = document.getElementById("foodsDetailSummary");
+    const openModalFoods = document.getElementById("foodsSummary");
+    const closeModalFoods = document.getElementById("closeModalFoods");
+
+    if(foodsSummaryModal && openModalFoods ){
+        openModalFoods .addEventListener("click", () => {
+            foodsSummaryModal.style.display = "flex";
+        })
+    }
+
+    if (closeModalFoods && foodsSummaryModal) {
+        closeModalFoods.addEventListener("click", () => {
+            foodsSummaryModal.style.display = "none";
+        });
+    }
+
+    window.addEventListener("click", e => {
+        if (e.target === foodsSummaryModal) {
+            foodsSummaryModal.style.display = "none";
+        }
+    });
+    //Foods Detail Search
+    const searchFoodsInput = document.getElementById("foodsSummarySearch")
+
+    searchFoodsInput.addEventListener("input", function(){
+        const keyword = this.value.toLowerCase().trim();
+        const rows = document.querySelectorAll(".foods-table-data");
+
+        rows.forEach(row => {
+            const menuName = row.querySelector(".foods-name-data").textContent.toLowerCase();
+            const foodsSalesData = row.querySelector(".foods-sales-data").textContent.toLowerCase();
+
+            const isMatch = menuName.includes(keyword) || foodsSalesData.includes(keyword);
+            row.style.display = isMatch ? "" : "none";
+        });
+
+    });
+};
+
+foodsDetailSummary();
+
+//Modal Detail Beverages Summary
+const beveragesDetailSummary = () => {
+    const beveragesSummaryModal = document.getElementById("beveragesDetailSummary");
+    const openModalBeverages = document.getElementById("beveragesSummary");
+    const closeModalBeverages = document.getElementById("closeModalBeverages");
+
+    if(openModalBeverages && beveragesSummaryModal){
+        openModalBeverages.addEventListener("click", () => {
+            beveragesSummaryModal.style.display = "flex";
+        })
+    };
+
+    if(closeModalBeverages && beveragesSummaryModal){
+        closeModalBeverages.addEventListener("click", () => {
+            beveragesSummaryModal.style.display = "none";
+        })
+    };
+
+    window.addEventListener("click", (e) => {
+        if(e.target === beveragesSummaryModal){
+            beveragesSummaryModal.style.display = "none";
+        };
+    });
+
+    //Beverages Detail Search
+    const searchBeveragesInput = document.getElementById("beveragesSummarySearch");
+    
+    searchBeveragesInput.addEventListener("input", function(){
+        const keyword = this.value.toLowerCase().trim();
+        const rows = document.querySelectorAll(".beverages-table-data");
+
+        rows.forEach(row => {
+            const menuName = row.querySelector(".beverages-name-data").textContent.toLowerCase();
+            const beveragesSalesData = row.querySelector(".beverages-sales-data").textContent.toLowerCase();
+
+            const isMatch = menuName.includes(keyword) || beveragesSalesData.includes(keyword);
+            row.style.display = isMatch ? "" : "none";
+        })
+    })
+};
+
+beveragesDetailSummary();
+
+//Modal Detail Desserts Summary
+const dessertsDetailSummary = () => {
+    const dessertsSummaryModal = document.getElementById("dessertsDetailSummary");
+    const openModalDesserts = document.getElementById("dessertsSummary");
+    const closeModalDesserts = document.getElementById("closeModalDesserts");
+
+    if(openModalDesserts && dessertsSummaryModal){
+        openModalDesserts.addEventListener("click", () => {
+            dessertsSummaryModal.style.display = "flex";
+        });
+    };
+
+    if(closeModalDesserts && dessertsSummaryModal){
+        closeModalDesserts.addEventListener("click", () => {
+            dessertsSummaryModal.style.display = "none";
+        });
+    };
+
+    window.addEventListener("click", (e) => {
+        if(e.target === dessertsSummaryModal){
+            dessertsSummaryModal.style.display = "none";
+        };
+    });
+
+    //Desserts Detail Search
+    const searchDessertsInput = document.getElementById("dessertsSummarySearch");
+
+    searchDessertsInput.addEventListener("input", function() {
+        const keywords = this.value.toLowerCase().trim();
+        const rows = document.querySelectorAll(".desserts-table-data");
+
+        rows.forEach(row => {
+            const menuName = row.querySelector(".desserts-name-data").textContent.toLowerCase();
+            const dessertsSalesData = row.querySelector(".desserts-sales-data").textContent.toLowerCase();
+
+            const isMatch = menuName.includes(keywords) || dessertsSalesData.includes(keywords);
+            row.style.display = isMatch ? "" : "none";
+        });
+    });
+};
+
+dessertsDetailSummary();
+
+// Modal Detail Transaction Order
+const detailTransactionPopup = () => {
+    const detailTransactionModal = document.getElementById("detailTransactionModal");
+    const openModalDetail = document.querySelectorAll(".open-detail-modal");
+    const closeModalDetail = document.getElementById("closeModalDetail");
+
+    if(openModalDetail && detailTransactionModal){
+        // openModalDetail.addEventListener("click", () => {
+        //     detailTransactionModal.style.display = "flex";
+        // });
+
+        openModalDetail.forEach(btn => {
+            btn.addEventListener("click", () => {
+                detailTransactionModal.style.display = "flex";
+            });
+        });
+    };
+
+    if(closeModalDetail && detailTransactionModal){
+        closeModalDetail.addEventListener("click", () => {
+            detailTransactionModal.style.display = "none";
+        });
+    };
+
+    window.addEventListener("click", (e) => {
+        if(e.target === detailTransactionModal){
+            detailTransactionModal.style.display = "none";
+        };
+    });
+};
+
+detailTransactionPopup();

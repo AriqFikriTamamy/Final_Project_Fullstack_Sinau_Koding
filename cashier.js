@@ -1,16 +1,6 @@
 let isCashierPage = false;
 let isSalesReportPage = false;
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     isCashierPage = document.body.classList.contains("page-cashier");
-//     isSalesReportPage = document.body.classList.contains("page-sales-report");
-
-//     console.log("isCashierPage:", isCashierPage);
-//     console.log("isSalesReportPage:", isSalesReportPage);
-
-//     initArchiveForSalesReport();
-// });
-
 console.log("cashier.js LOADED");
 
 function on(el, event, handler) {
@@ -779,11 +769,11 @@ function showSuccessModal({ activeOrders, subTotal, tax, total, paid }) {
             <div class="receipt-item-row">
                 <div class="receipt-name-price-item">
                     <span>${item.name}</span>
-                    <span id="priceQty">${format(item.price * item.qty)}</span>
+                    <span id="priceQty">Rp. ${format(item.price * item.qty)}</span>
                 </div>
                 <span id="qtyXPrice">${item.qty} x Rp ${item.price} </span>
                 <div class="note-receipt">
-                ${item.note ? `<small class="receipt-note">Catatan: ${item.note}</small>` : ""}
+                    ${item.note ? `<small class="receipt-note">Catatan: ${item.note}</small>` : ""}
                 </div>
             </div>
         `;
@@ -1129,82 +1119,79 @@ if (menuListElement) {
 };
 
 function renderMenuList(data) {
-            // menuListElement.innerHTML = "";
-            if (menuListElement) {
-                menuListElement.innerHTML = "";
-            }
+    // menuListElement.innerHTML = "";
+    if (menuListElement) {
+        menuListElement.innerHTML = "";
+    }
 
-            data.forEach(menu => {
-                const card = document.createElement("div");
-                card.className = "menu-list-card";
-                card.dataset.category = menu.category;
-                card.dataset.id = menu.id;
-                card.dataset.name = menu.name;
-                card.dataset.price = menu.price;
-                card.dataset.image = menu.image;
+    data.forEach(menu => {
+        const card = document.createElement("div");
+        card.className = "menu-list-card";
+        card.dataset.category = menu.category;
+        card.dataset.id = menu.id;
+        card.dataset.name = menu.name;
+        card.dataset.price = menu.price;
+        card.dataset.image = menu.image;
 
-                card.innerHTML = `
-                    <div class="menu-content">
-                        <div class="menu-image">
-                            <img src="${menu.image}" alt="${menu.name}">
-                            <div class="category-badge">
-                                <p>${capitalize(menu.category)}</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-name">
-                            <h1>${menu.name}</h1>
-                        </div>
-
-                        <div class="menu-description">
-                            <p>${menu.description}</p>
-                        </div>
-
-                        <div class="menu-price">
-                            <p><span>Rp. ${format(menu.price)}</span>/portion</p>
-                        </div>
-
-                        <div class="detail-menu-icon">
-                            <a href="#">
-                                <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
-                            </a>
+        card.innerHTML = `
+            <div class="menu-content">
+                <div class="menu-image">
+                    <img src="${menu.image}" alt="${menu.name}">
+                    <div class="category-badge">
+                            <p>${capitalize(menu.category)}</p>
                         </div>
                     </div>
-                `;
 
-                menuListElement.appendChild(card);
-            });
+                    <div class="menu-name">
+                        <h1>${menu.name}</h1>
+                    </div>
 
-            updateTotalMenu(data.length);
+                    <div class="menu-description">
+                        <p>${menu.description}</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <p><span>Rp. ${format(menu.price)}</span>/portion</p>
+                    </div>
+
+                    <div class="detail-menu-icon">
+                        <a href="#">
+                            <img src="assets/order-menu-icon.png" alt="Order Menu Icon">
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            menuListElement.appendChild(card);
+        });
+
+    updateTotalMenu(data.length);
 }
 
 function capitalize(text) {
-            return text.charAt(0).toUpperCase() + text.slice(1);
+    return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-        // renderMenuList(menus);
-        if (menuListElement) {
-            renderMenuList(menus);
-        };
+    // renderMenuList(menus);
+    if (menuListElement) {
+        renderMenuList(menus);
+    };
 });
 
 const categoryMenuButtons = document.querySelectorAll(".category-menu > div");
 
 categoryMenuButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                const filter = button.dataset.filter;
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
 
-                categoryMenuButtons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
+        categoryMenuButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
 
-                const filteredMenu =
-                    filter === "all"
-                        ? menus
-                        : menus.filter(menu => menu.category === filter);
+        const filteredMenu = filter === "all" ? menus: menus.filter(menu => menu.category === filter);
 
-                renderMenuList(filteredMenu);
-            });
+        renderMenuList(filteredMenu);
+    });
 });
 
 const searchInput = document.getElementById("search");
