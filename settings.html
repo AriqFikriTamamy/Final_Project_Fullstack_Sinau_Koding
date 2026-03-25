@@ -128,7 +128,133 @@
         </section>
       </aside>
       <section class="main-content">
-        <div class="container"></div>
+        <div class="container">
+          <div class="settings-body">
+            <div class="settings-title">
+              <h1>Settings</h1>
+            </div>
+            <div class="settings-main">
+              <div class="settings-account">
+                <div class="account-profile">
+                  <div class="account-title">
+                    <h2>Account</h2>
+                  </div>
+                  <div class="account-picture">
+                    <img
+                      src="assets/settings-account-image.png"
+                      alt="Settings Account Picture"
+                    />
+                    <div class="change-delete-picture">
+                      <div class="change-picture-account">
+                        <p>Change Picture</p>
+                      </div>
+                      <div class="delete-picture-account">
+                        <p>Delete Picture</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="account-data">
+                    <form action="" method="post">
+                      <div class="form-email">
+                        <label for="email">Email</label>
+                        <input
+                          type="email"
+                          namee="email"
+                          id="email"
+                          value="johndoe@gmail.com"
+                          autocomplete="johndoe@gmail.com"
+                        />
+                      </div>
+                      <div class="form-username">
+                        <label for="username">Username</label>
+                        <input
+                          type="text"
+                          name="username"
+                          id="username"
+                          value="John Doe"
+                          autocomplete="John Doe"
+                        />
+                      </div>
+                      <div class="form-role">
+                        <label for="role">Role</label>
+                        <input
+                          type="text"
+                          name="role"
+                          id="role"
+                          value="Cashier"
+                        />
+                      </div>
+                      <div class="form-status">
+                        <label for="status">Status</label>
+                        <input
+                          type="text"
+                          name="status"
+                          id="status"
+                          value="Active"
+                        />
+                      </div>
+                      <div class="form-languange">
+                        <label for="languange">Languange</label>
+                        <select name="languange" id="languange">
+                          <option value="English" selected>English</option>
+                          <option value="Indonesia">Indonesia</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="settings-account-password">
+                <h1>Password</h1>
+                <div class="change-password">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value="******"
+                    autocomplete="******"
+                  />
+                  <button>Change Password</button>
+                </div>
+              </div>
+              <hr />
+              <div class="settings-account-appearance">
+                <h1>Appearance</h1>
+                <div class="appearance-settings">
+                  <div class="preference-mode">
+                    <label for="preference">Preference Mode</label>
+                    <select name="preference" id="preference">
+                      <option value="Light Mode" selected>Light Mode</option>
+                      <option value="Dark Mode">Dark Mode</option>
+                    </select>
+                  </div>
+                  <div class="font-size">
+                    <label for="font">Font Size</label>
+                    <select name="font" id="font">
+                      <option value="16px" selected>16 px</option>
+                      <option value="14px">14 px</option>
+                      <option value="12px">12 px</option>
+                    </select>
+                  </div>
+                  <div class="zoom-display">
+                    <label for="zoom">Zoom Display</label>
+                    <select name="font" id="font">
+                      <option value="16px" selected>16 px</option>
+                      <option value="14px">14 px</option>
+                      <option value="12px">12 px</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="settings-save-changes">
+                <button>Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer></footer>

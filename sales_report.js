@@ -98,38 +98,57 @@ window.addEventListener("click", e => {
 });
 
 // Dropdown Show Data Entries
-const entriesDropdown = document.getElementById("entriesDropdown");
 
-if(entriesDropdown){
-    const toggle = entriesDropdown.querySelector(".dropdown-toggle");
-    const items = entriesDropdown.querySelectorAll(".dropdown-item li");
-    const selectedText = entriesDropdown.querySelector(".selected-text");
+// Tampilkan data berdasarkan jumlah entries yang diminta
+let currentPage = 1;
 
-    toggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        entriesDropdown.classList.toggle("active");
-    });
+function updateTableData(){
+    const dropdown = document.getElementById("dataEntries");
+    // const tableBody = document.getElementById("tableBody");
+    const dataRows = document.querySelectorAll('#tableBody tr');
+    const dataLimit = parseInt(dropdown.value);
+    const start = (currentPage - 1) * dataLimit;
+    const end = start + dataLimit;
 
-    items.forEach(item => {
-        item.addEventListener("click", function() {
-            selectedText.textContent = this.textContent;
-            entriesDropdown.classList.remove("active");
-        });
-    });
-
-    document.addEventListener("click", (e) => {
-        if(!entriesDropdown.contains(e.target)){
-            entriesDropdown.classList.remove("active")
+    dataRows.forEach((row, index) => {
+        if(index >= start && index < end){
+            row.style.display = "table-row";
+        }else{
+            row.style.display = "none"
         }
-    });
+    })
+
+    // for(let i = 0; i < dataRows.length; i++){
+    //     if(i >= start && i < end ){
+    //         dataRows[i].style.display = "table-row";
+    //     }else{
+    //         dataRows[i].style.display = "none";
+    //     }
+    // }
 };
 
-// Sales |Report Pagination
+function updateEntries(){
+    currentPage = 1;
+    updateTableData();
+}
+
+window.onload = updateTableData;
+
+
+
+// Sales Report Pagination
 document.addEventListener("DOMContentLoaded", () => {
 const pagination = document.querySelector(".recent-data-pagination");
 
-const totalPages = 10;
-let currentPage = 1;
+// const totalPages = 10;
+function getTotalPages(){
+    const totalData = dataSalesReport.length;
+    const limit = parseInt(document.getElementById("dataEntries").value);
+    return Math.ceil(totalData / limit);
+};
+
+const totalPages = getTotalPages();
+
 const visiblePages = 3;
 
 function renderPagination() {
@@ -200,7 +219,9 @@ function createEllipsis() {
 function changePage(page) {
     if (page < 1 || page > totalPages) return;
     currentPage = page;
+
     renderPagination();
+    updateTableData();
 
     console.log("Halaman aktif: ", currentPage);
 }
@@ -368,3 +389,314 @@ const detailTransactionPopup = () => {
 };
 
 detailTransactionPopup();
+
+// Object Data Table
+const dataSalesReport = [
+    {
+        id: 1,
+        orderNumber: "ORDR#1234567890",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 2,
+        orderNumber: "ORDR#1234567891",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 3,
+        orderNumber: "ORDR#1234567892",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 4,
+        orderNumber: "ORDR#1234567893",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 5,
+        orderNumber: "ORDR#1234567894",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 6,
+        orderNumber: "ORDR#1234567895",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 7,
+        orderNumber: "ORDR#1234567896",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 8,
+        orderNumber: "ORDR#1234567897",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 9,
+        orderNumber: "ORDR#1234567898",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 10,
+        orderNumber: "ORDR#1234567899",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 11,
+        orderNumber: "ORDR#12345678910",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 12,
+        orderNumber: "ORDR#12345678911",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 13,
+        orderNumber: "ORDR#12345678912",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 14,
+        orderNumber: "ORDR#12345678913",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 15,
+        orderNumber: "ORDR#12345678914",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 16,
+        orderNumber: "ORDR#12345678915",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 17,
+        orderNumber: "ORDR#12345678916",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 18,
+        orderNumber: "ORDR#12345678917",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 19,
+        orderNumber: "ORDR#12345678918",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 20,
+        orderNumber: "ORDR#12345678919",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 21,
+        orderNumber: "ORDR#12345678920",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 22,
+        orderNumber: "ORDR#12345678921",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 23,
+        orderNumber: "ORDR#12345678922",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 24,
+        orderNumber: "ORDR#12345678923",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 25,
+        orderNumber: "ORDR#12345678924",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 26,
+        orderNumber: "ORDR#12345678925",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 27,
+        orderNumber: "ORDR#12345678926",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 28,
+        orderNumber: "ORDR#12345678927",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 29,
+        orderNumber: "ORDR#12345678928",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+    {
+        id: 30,
+        orderNumber: "ORDR#12345678929",
+        orderDate: "Rabu, 18/09/2024 12:30:00",
+        orderType: "Dine-in",
+        orderCategory: "Foods",
+        customerName: "Annisa",
+        detailOrder: "assets/detail-data-icon.png"
+    },
+];
+
+const salesReportData = document.getElementById("salesReportData");
+const tableBody = document.getElementById("tableBody");
+
+function renderDataTable(){
+    tableBody.innerHTML="";
+
+    // Perulangan untuk menampilkan data pada tabel
+    dataSalesReport.forEach(data => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = ` 
+            <td>
+                <p>${data.orderNumber}</p>
+            </td>
+            <td>
+                <p>${data.orderDate}</p>
+            </td>
+            <td>
+                <p>${data.orderType}</p>
+            </td>
+            <td>
+                <p>${data.orderCategory}</p>
+            </td>
+            <td>
+                <p>${data.customerName}</p>
+            </td>
+            <td class="detail-order open-detail-modal">
+                <img src="${data.detailOrder}" alt="Detail Data Icon">
+            </td>`;
+
+            tableBody.appendChild(row);
+    });
+    updateTableData();
+};
+
+renderDataTable();

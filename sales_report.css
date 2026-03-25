@@ -982,14 +982,14 @@ main .main-content .container {
     padding: 5px 0;
 }
 
-.dropdown-button .dropdown-item li {
+/* .dropdown-button .data-entries option {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
+} */
 
 .dropdown-button.active .dropdown-item {
     display: block;
@@ -1011,7 +1011,7 @@ main .main-content .container {
     transform: rotate(180deg);
 }
 
-/* Order Type */
+/* Data Search Order Type */
 .report-data-header .report-data-search .data-search-order-type {
     display: flex;
     flex-direction: column;
@@ -1137,10 +1137,15 @@ main .main-content .container {
     margin-bottom: 20px;
 }
 
+.sales-report-data .report-data-main .report-data-table {
+    overflow-y: scroll;
+    max-height: 600px;
+    width: auto;
+}
+
 .sales-report-data .report-data-main table {
     width: 100%;
-    height: auto;
-    overflow: scroll;
+    height: 600px;
     border-collapse: collapse;
     /* border: 1px solid black; */
 }
@@ -1188,6 +1193,22 @@ tr td p {
 tr td img {
     cursor: pointer;
     margin-left: 20px;
+}
+
+.data-entries-pagination .show-data-entries .data-entries {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -10px;
+    border-radius: 10px;
+}
+
+.show-data-entries .data-entries option {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .sales-report-data .report-data-main .data-entries-pagination {
