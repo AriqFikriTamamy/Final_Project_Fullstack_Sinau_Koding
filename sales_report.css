@@ -6,7 +6,8 @@
     font-weight: 400;
     font-size: 14px;
 }
-html body{
+
+html body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
@@ -15,7 +16,7 @@ html body{
     background-color: #F7F7F7;
 }
 
-html body header{
+html body header {
     width: 100%;
     height: 80px;
     margin-left: 220px;
@@ -23,26 +24,26 @@ html body header{
     z-index: 10;
 }
 
-body header .header-container{
+body header .header-container {
     /* width: 1360px; */
     width: 100%;
     height: 80px;
     background-color: #FFFFFF;
 }
 
-header .header-container nav{
+header .header-container nav {
     display: flex;
     flex-direction: row;
     /* justify-content:space-between; */
 }
 
-.header-container nav .search-bar{
+.header-container nav .search-bar {
     margin-left: 20px;
     margin-top: 19px;
     /* padding: 12px; */
 }
 
-nav .search-bar .search-bar-box{
+nav .search-bar .search-bar-box {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,7 +57,7 @@ nav .search-bar .search-bar-box{
     margin-bottom: 13px;
 }
 
-nav .search-bar input{
+nav .search-bar input {
     width: 500px;
     height: 42px;
     border-radius: 10px;
@@ -67,18 +68,18 @@ nav .search-bar input{
     background-size: 16px 16px;
 }
 
-nav .search-bar input[type=text]:focus{
+nav .search-bar input[type=text]:focus {
     border-color: #007bff;
     color: #007bff;
     outline: none;
 }
 
-nav .search-bar input:not(:placeholder-shown){
+nav .search-bar input:not(:placeholder-shown) {
     background-image: none;
     padding-left: 10px;
 }
 
-nav .search-bar input::placeholder{
+nav .search-bar input::placeholder {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -87,7 +88,7 @@ nav .search-bar input::placeholder{
     padding-left: 38px;
 }
 
-.header-container nav .archive-and-account-container{
+.header-container nav .archive-and-account-container {
     display: flex;
     flex-direction: row;
     row-gap: 50px;
@@ -96,7 +97,7 @@ nav .search-bar input::placeholder{
     cursor: pointer;
 }
 
-nav .archive-and-account-container .order-archive{
+nav .archive-and-account-container .order-archive {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -109,17 +110,17 @@ nav .archive-and-account-container .order-archive{
     margin-left: 796px;
 }
 
-.archive-and-account-container .order-archive .order-archive-logo{
+.archive-and-account-container .order-archive .order-archive-logo {
     margin-top: 1px;
     margin-bottom: 1px;
 }
 
-.order-archive .order-archive-logo img{
+.order-archive .order-archive-logo img {
     width: 18px;
     height: 18px;
 }
 
-.archive-and-account-container .order-archive .order-archive-text{
+.archive-and-account-container .order-archive .order-archive-text {
     color: #787878;
 }
 
@@ -128,7 +129,7 @@ nav .archive-and-account-container .order-archive{
     font-size: 14px;
 }
 
-nav .archive-and-account-container .navbar-account{
+nav .archive-and-account-container .navbar-account {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -138,27 +139,27 @@ nav .archive-and-account-container .navbar-account{
     margin-left: 50px;
 }
 
-.archive-and-account-container .navbar-account .account-image{
+.archive-and-account-container .navbar-account .account-image {
     margin-left: 50px;
     border-radius: 100px;
 }
 
-.navbar-account .account-image img{
+.navbar-account .account-image img {
     width: 50px;
     height: 50px;
 }
 
-.archive-and-account-container .navbar-account a{
+.archive-and-account-container .navbar-account a {
     text-decoration: none;
 }
 
-.archive-and-account-container .navbar-account .account-name-title{
+.archive-and-account-container .navbar-account .account-name-title {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.navbar-account .account-name-title .account-name{
+.navbar-account .account-name-title .account-name {
     display: flex;
     flex-direction: row;
     line-height: 18px;
@@ -166,34 +167,34 @@ nav .archive-and-account-container .navbar-account{
     width: 51px;
 }
 
-.account-name-title .account-name p{
+.account-name-title .account-name p {
     font-weight: 500;
     font-size: 12px;
     /* letter-spacing: 0; */
 }
 
-.navbar-account .account-name-title .account-title{
+.navbar-account .account-name-title .account-title {
     line-height: 15px;
     color: #787878;
 }
 
-.account-name-title .account-title p{
+.account-name-title .account-title p {
     font-weight: 300;
     font-size: 12px;
     letter-spacing: 0;
 }
 
-.archive-and-account-container .navbar-account .logout-icon{
+.archive-and-account-container .navbar-account .logout-icon {
     margin-left: 20px;
     margin-right: 30px;
 }
 
-.logout-icon a img{
+.logout-icon a img {
     width: 20px;
     height: 20px;
 }
 
-html body main{
+html body main {
     display: flex;
     /* flex-direction: row; */
     /* width: 100%; */
@@ -201,7 +202,7 @@ html body main{
     height: auto;
 }
 
-body main .sidebar{
+body main .sidebar {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -215,7 +216,7 @@ body main .sidebar{
     background-color: #FFFFFF;
 }
 
-.sidebar .logo-section .logo-and-minimize{
+.sidebar .logo-section .logo-and-minimize {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -223,22 +224,22 @@ body main .sidebar{
     margin-left: 15px;
 }
 
-.logo-and-minimize .logo img{
+.logo-and-minimize .logo img {
     width: 130px;
     height: 50px;
 }
 
-.logo-section .logo-and-minimize .minimize-sidebar{
+.logo-section .logo-and-minimize .minimize-sidebar {
     margin-left: 29px;
     cursor: pointer;
 }
 
-.logo-and-minimize .minimize-sidebar img{
+.logo-and-minimize .minimize-sidebar img {
     width: 26px;
     height: 26px;
 }
 
-main .sidebar .cashier-section{
+main .sidebar .cashier-section {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -248,46 +249,46 @@ main .sidebar .cashier-section{
     margin-top: 30px;
 }
 
-.sidebar .cashier-section .cashier-icon{
+.sidebar .cashier-section .cashier-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.cashier-section .cashier-icon img{
+.cashier-section .cashier-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.sidebar .cashier-section .cashier-text{
+.sidebar .cashier-section .cashier-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #C4C4C4;
     margin-left: 12px;
 }
 
-.cashier-section .cashier-text a{
+.cashier-section .cashier-text a {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:visited{
+.cashier-section .cashier-text a:visited {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:link{
+.cashier-section .cashier-text a:link {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text p{
+.cashier-section .cashier-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-main .sidebar .sales-report-section{
+main .sidebar .sales-report-section {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -297,55 +298,55 @@ main .sidebar .sales-report-section{
     margin-top: 20px;
 }
 
-.sidebar .sales-report-section .sales-report-icon{
+.sidebar .sales-report-section .sales-report-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.sales-report-section .sales-report-icon img{
+.sales-report-section .sales-report-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.page-sales-report .sales-report-section .sales-report-text{
+.page-sales-report .sales-report-section .sales-report-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #3572EF;
     margin-left: 12px;
 }
 
-.page-sales-report .sales-report-text a{
+.page-sales-report .sales-report-text a {
     color: #3572EF;
     text-decoration: none;
 }
 
-.page-sales-report .sales-report-text a:visited{
+.page-sales-report .sales-report-text a:visited {
     color: #3572EF;
     text-decoration: none;
 }
 
-.page-sales-report .sales-report-text a:link{
+.page-sales-report .sales-report-text a:link {
     color: #3572EF;
     text-decoration: none;
 }
 
-.sales-report-section .sales-report-text p{
+.sales-report-section .sales-report-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-.sidebar .sales-report-section .side-bar-selected{
+.sidebar .sales-report-section .side-bar-selected {
     margin-left: 78px;
 }
 
-.sales-report-section .side-bar-selected img{
+.sales-report-section .side-bar-selected img {
     width: 3px;
     height: 30px;
 }
 
-main .sidebar .settings-section{
+main .sidebar .settings-section {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -354,74 +355,75 @@ main .sidebar .settings-section{
     margin-top: 20px;
 }
 
-.sidebar .settings-section .settings-icon{
+.sidebar .settings-section .settings-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.settings-section .settings-icon img{
+.settings-section .settings-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.sidebar .settings-section .settings-text{
+.sidebar .settings-section .settings-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #C4C4C4;
     margin-left: 12px;
 }
 
-.settings-section .settings-text a{
+.settings-section .settings-text a {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.settings-section .settings-text a:visited{
+.settings-section .settings-text a:visited {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.settings-section .settings-text a:link{
+.settings-section .settings-text a:link {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.settings-section .settings-text p{
+.settings-section .settings-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-.settings-section .settings-text p{
+.settings-section .settings-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-body main .main-content{
+body main .main-content {
     width: 100%;
 }
 
-main .main-content .container{
+main .main-content .container {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
     margin-left: 20px;
 }
 
-.main-content .container .sales-report-main{
+.main-content .container .sales-report-main {
     display: flex;
     flex-direction: column;
     /* width: 1360px; */
     width: 100%;
 }
-.container .sales-report-main .sales-report-title{
+
+.container .sales-report-main .sales-report-title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.sales-report-main .sales-report-title h1{
+.sales-report-main .sales-report-title h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 32px;
@@ -429,11 +431,11 @@ main .main-content .container{
     color: #000000;
 }
 
-.sales-report-main .sales-report-title .report-time{
+.sales-report-main .sales-report-title .report-time {
     margin-right: 40px;
 }
 
-.sales-report-title .report-time p{
+.sales-report-title .report-time p {
     font-weight: 500;
     font-size: 24px;
     line-height: 24px;
@@ -441,7 +443,7 @@ main .main-content .container{
     color: #919191;
 }
 
-.report-time p span{
+.report-time p span {
     font-weight: 500;
     font-size: 24px;
     line-height: 24px;
@@ -449,22 +451,22 @@ main .main-content .container{
     color: #919191;
 }
 
-.container .sales-report-main .sales-report-summary{
+.container .sales-report-main .sales-report-summary {
     /* display: flex;
     flex-direction: row;
     column-gap: 20px; */
     max-width: 100%;
 }
 
-.container .sales-report-main .sales-report-summary .report-summary-container{
+.container .sales-report-main .sales-report-summary .report-summary-container {
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: 15px;
     margin-right: 20px;
     /* max-width: 100%; */
 }
 
-.sales-report-main .sales-report-summary .report-summary-card{
+.sales-report-main .sales-report-summary .report-summary-card {
     margin-top: 20px;
     background-color: #FFFFFF;
     width: 260px;
@@ -474,7 +476,7 @@ main .main-content .container{
 }
 
 /* Total Order Summary */
-.report-summary-container .report-summary-card .total-order-summary{
+.report-summary-container .report-summary-card .total-order-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -482,39 +484,39 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .total-order-summary .total-order-text{
+.report-summary-card .total-order-summary .total-order-text {
     color: #000000;
 }
 
-.total-order-summary .total-order-text h1{
+.total-order-summary .total-order-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .total-order-summary .summary-icon-number{
+.report-summary-card .total-order-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.total-order-summary .summary-icon-number .summary-card-icon{
+.total-order-summary .summary-icon-number .summary-card-icon {
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.total-order-summary .summary-icon-number .summary-card-number{
+.total-order-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
@@ -522,7 +524,7 @@ main .main-content .container{
 }
 
 /* Total Omzet Summary */
-.report-summary-container .report-summary-card .total-omzet-summary{
+.report-summary-container .report-summary-card .total-omzet-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -530,40 +532,40 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .total-omzet-summary .total-omzet-text{
+.report-summary-card .total-omzet-summary .total-omzet-text {
     color: #000000;
 }
 
-.total-omzet-summary .total-omzet-text h1{
+.total-omzet-summary .total-omzet-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .total-omzet-summary .summary-icon-number{
+.report-summary-card .total-omzet-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.total-omzet-summary .summary-icon-number .summary-card-icon{
+.total-omzet-summary .summary-icon-number .summary-card-icon {
     align-items: center;
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.total-omzet-summary .summary-icon-number .summary-card-number{
+.total-omzet-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
@@ -571,7 +573,7 @@ main .main-content .container{
 }
 
 /* All Menu Sales Summary */
-.report-summary-container .report-summary-card .menu-sales-summary{
+.report-summary-container .report-summary-card .menu-sales-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -579,40 +581,40 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .menu-sales-summary .menu-sales-text{
+.report-summary-card .menu-sales-summary .menu-sales-text {
     color: #000000;
 }
 
-.menu-sales-summary .menu-sales-text h1{
+.menu-sales-summary .menu-sales-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .menu-sales-summary .summary-icon-number{
+.report-summary-card .menu-sales-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.menu-sales-summary .summary-icon-number .summary-card-icon{
+.menu-sales-summary .summary-icon-number .summary-card-icon {
     align-items: center;
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.menu-sales-summary .summary-icon-number .summary-card-number{
+.menu-sales-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
@@ -620,7 +622,7 @@ main .main-content .container{
 }
 
 /* Foods Summary*/
-.report-summary-container .report-summary-card .foods-summary{
+.report-summary-container .report-summary-card .foods-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -628,47 +630,47 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .foods-summary .foods-text{
+.report-summary-card .foods-summary .foods-text {
     color: #000000;
 }
 
-.foods-summary .foods-text h1{
+.foods-summary .foods-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .foods-summary .summary-icon-number{
+.report-summary-card .foods-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.foods-summary .summary-icon-number .summary-card-icon{
+.foods-summary .summary-icon-number .summary-card-icon {
     align-items: center;
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.foods-summary .summary-icon-number .summary-card-number{
+.foods-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .foods-summary .summary-card-detail{
+.report-summary-card .foods-summary .summary-card-detail {
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
@@ -676,13 +678,13 @@ main .main-content .container{
     cursor: pointer;
 }
 
-.foods-summary .summary-card-detail img{
+.foods-summary .summary-card-detail img {
     width: 14px;
     height: 14px;
 }
 
 /* Beverages Summary */
-.report-summary-container .report-summary-card .beverages-summary{
+.report-summary-container .report-summary-card .beverages-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -690,47 +692,47 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .beverages-summary .beverages-text{
+.report-summary-card .beverages-summary .beverages-text {
     color: #000000;
 }
 
-.beverages-summary .beverages-text h1{
+.beverages-summary .beverages-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .beverages-summary .summary-icon-number{
+.report-summary-card .beverages-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.beverages-summary .summary-icon-number .summary-card-icon{
+.beverages-summary .summary-icon-number .summary-card-icon {
     align-items: center;
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.beverages-summary .summary-icon-number .summary-card-number{
+.beverages-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .beverages-summary .summary-card-detail{
+.report-summary-card .beverages-summary .summary-card-detail {
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
@@ -738,13 +740,13 @@ main .main-content .container{
     cursor: pointer;
 }
 
-.beverages-summary .summary-card-detail img{
+.beverages-summary .summary-card-detail img {
     width: 14px;
     height: 14px;
 }
 
 /* Desserts Summary */
-.report-summary-container .report-summary-card .desserts-summary{
+.report-summary-container .report-summary-card .desserts-summary {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -752,47 +754,47 @@ main .main-content .container{
     margin-left: 20px;
 }
 
-.report-summary-card .deeserts-summary .desserts-text{
+.report-summary-card .deeserts-summary .desserts-text {
     color: #000000;
 }
 
-.deeserts-summary .desserts-text h1{
+.deeserts-summary .desserts-text h1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .desserts-summary .summary-icon-number{
+.report-summary-card .desserts-summary .summary-icon-number {
     margin-top: 4px;
     display: flex;
     flex-direction: row;
 }
 
-.desserts-summary .summary-icon-number .summary-card-icon{
+.desserts-summary .summary-icon-number .summary-card-icon {
     align-items: center;
     margin-right: 10px;
 }
 
-.summary-icon-number .summary-card-icon img{
+.summary-icon-number .summary-card-icon img {
     width: 30px;
     height: 30px;
 }
 
-.desserts-summary .summary-icon-number .summary-card-number{
+.desserts-summary .summary-icon-number .summary-card-number {
     display: flex;
     align-items: center;
     color: #000000;
 }
 
-.summary-icon-number .summary-card-number h1{
+.summary-icon-number .summary-card-number h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 18px;
     letter-spacing: 0;
 }
 
-.report-summary-card .desserts-summary .summary-card-detail{
+.report-summary-card .desserts-summary .summary-card-detail {
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
@@ -800,12 +802,12 @@ main .main-content .container{
     cursor: pointer;
 }
 
-.deeserts-summary .summary-card-detail img{
+.deeserts-summary .summary-card-detail img {
     width: 14px;
     height: 14px;
 }
 
-.container .sales-report-main .sales-report-data{
+.container .sales-report-main .sales-report-data {
     margin-top: 20px;
     margin-right: 20px;
     display: flex;
@@ -816,7 +818,7 @@ main .main-content .container{
     background-color: #FFFFFF;
 }
 
-.sales-report-main .sales-report-data .report-data-header{
+.sales-report-main .sales-report-data .report-data-header {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -826,21 +828,21 @@ main .main-content .container{
     margin-bottom: 30px;
 }
 
-.sales-report-data .report-data-header .report-data-search{
+.sales-report-data .report-data-header .report-data-search {
     display: flex;
     flex-direction: row;
     column-gap: 15px;
 }
 
 /* Data Search Start */
-.report-data-header .report-data-search .data-search-start{
+.report-data-header .report-data-search .data-search-start {
     display: flex;
     flex-direction: column;
     row-gap: 2px;
     position: relative;
 }
 
-.report-data-search .data-search-start h1{
+.report-data-search .data-search-start h1 {
     font-weight: 16px;
     font-size: 16px;
     line-height: 24px;
@@ -848,7 +850,7 @@ main .main-content .container{
     color: #5E5E5E;
 }
 
-.report-data-search .data-search-start input{
+.report-data-search .data-search-start input {
     width: 300px;
     height: 48px;
     border-radius: 10px;
@@ -859,18 +861,18 @@ main .main-content .container{
     background-size: 18px 18px;
 }
 
-.report-data-search .data-search-start input[type=text]:focus{
+.report-data-search .data-search-start input[type=text]:focus {
     border-color: #007bff;
     color: #007bff;
     outline: none;
 }
 
-.report-data-search .data-search-start input:not(:placeholder-shown){
+.report-data-search .data-search-start input:not(:placeholder-shown) {
     background-image: none;
     padding-left: 10px;
 }
 
-.report-data-search .data-search-start input::placeholder{
+.report-data-search .data-search-start input::placeholder {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -880,13 +882,13 @@ main .main-content .container{
 }
 
 /* Data Search Finish */
-.report-data-header .report-data-search .data-search-finish{
+.report-data-header .report-data-search .data-search-finish {
     display: flex;
     flex-direction: column;
     row-gap: 2px;
 }
 
-.report-data-search .data-search-finish h1{
+.report-data-search .data-search-finish h1 {
     font-weight: 16px;
     font-size: 16px;
     line-height: 24px;
@@ -894,7 +896,7 @@ main .main-content .container{
     color: #5E5E5E;
 }
 
-.report-data-search .data-search-finish input{
+.report-data-search .data-search-finish input {
     width: 300px;
     height: 48px;
     border-radius: 10px;
@@ -905,18 +907,18 @@ main .main-content .container{
     background-size: 18px 18px;
 }
 
-.report-data-search .data-search-finish input[type=text]:focus{
+.report-data-search .data-search-finish input[type=text]:focus {
     border-color: #007bff;
     color: #007bff;
     outline: none;
 }
 
-.report-data-search .data-search-finish input:not(:placeholder-shown){
+.report-data-search .data-search-finish input:not(:placeholder-shown) {
     background-image: none;
     padding-left: 10px;
 }
 
-.report-data-search .data-search-finish input::placeholder{
+.report-data-search .data-search-finish input::placeholder {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -926,13 +928,13 @@ main .main-content .container{
 }
 
 /* Data Search Category */
-.report-data-header .report-data-search .data-search-category{
+.report-data-header .report-data-search .data-search-category {
     display: flex;
     flex-direction: column;
     row-gap: 2px;
 }
 
-.report-data-search .data-search-category h1{
+.report-data-search .data-search-category h1 {
     font-weight: 16px;
     font-size: 16px;
     line-height: 24px;
@@ -940,13 +942,13 @@ main .main-content .container{
     color: #5E5E5E;
 }
 
-.report-data-search .data-search-category .dropdown-button{
+.report-data-search .data-search-category .dropdown-button {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.data-search-category .dropdown-button a{
+.data-search-category .dropdown-button a {
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -960,12 +962,12 @@ main .main-content .container{
     color: #C4C4C4;
 }
 
-.data-search-category .dropdown-button a:visited{
+.data-search-category .dropdown-button a:visited {
     color: #000000;
     text-decoration: none;
 }
 
-.data-search-category .dropdown-button .dropdown-item{
+.data-search-category .dropdown-button .dropdown-item {
     list-style: none;
     /* Sembunyikan Dropdown */
     display: none;
@@ -980,43 +982,43 @@ main .main-content .container{
     padding: 5px 0;
 }
 
-.dropdown-button .dropdown-item li{
+/* .dropdown-button .data-entries option {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
+} */
 
-.dropdown-button.active .dropdown-item{
+.dropdown-button.active .dropdown-item {
     display: block;
 }
 
-.dropdown-button .dropdown-item li:hover{
+.dropdown-button .dropdown-item li:hover {
     padding: 10px 14px;
     cursor: pointer;
     font-size: 14px;
     color: #3572EF;
 }
 
-.dropdown-button .dropdown-toggle .dropdown-arrow{
+.dropdown-button .dropdown-toggle .dropdown-arrow {
     transition: transform 0.3 ease;
     transform: rotate(0deg);
 }
 
-.dropdown-button.active .dropdown-toggle .dropdown-arrow{
+.dropdown-button.active .dropdown-toggle .dropdown-arrow {
     transform: rotate(180deg);
 }
 
-/* Order Type */
-.report-data-header .report-data-search .data-search-order-type{
+/* Data Search Order Type */
+.report-data-header .report-data-search .data-search-order-type {
     display: flex;
     flex-direction: column;
     row-gap: 2px;
 }
 
-.report-data-search .data-search-order-type h1{
+.report-data-search .data-search-order-type h1 {
     font-weight: 16px;
     font-size: 16px;
     line-height: 24px;
@@ -1024,13 +1026,13 @@ main .main-content .container{
     color: #5E5E5E;
 }
 
-.report-data-search .data-search-order-type .dropdown-button{
+.report-data-search .data-search-order-type .dropdown-button {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.data-search-order-type .dropdown-button a{
+.data-search-order-type .dropdown-button a {
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -1044,12 +1046,12 @@ main .main-content .container{
     color: #C4C4C4;
 }
 
-.data-search-order-type .dropdown-button a:visited{
+.data-search-order-type .dropdown-button a:visited {
     color: #000000;
     text-decoration: none;
 }
 
-.data-search-order-type .dropdown-button .dropdown-item{
+.data-search-order-type .dropdown-button .dropdown-item {
     list-style: none;
     /* Sembunyikan Dropdown */
     display: none;
@@ -1064,7 +1066,7 @@ main .main-content .container{
     padding: 5px 0;
 }
 
-.dropdown-button .dropdown-item li{
+.dropdown-button .dropdown-item li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1073,34 +1075,34 @@ main .main-content .container{
     margin-bottom: 10px;
 }
 
-.dropdown-button.active .dropdown-item{
+.dropdown-button.active .dropdown-item {
     display: block;
 }
 
-.dropdown-button .dropdown-item li:hover{
+.dropdown-button .dropdown-item li:hover {
     padding: 10px 14px;
     cursor: pointer;
     font-size: 14px;
     color: #3572EF;
 }
 
-.dropdown-button .dropdown-toggle .dropdown-arrow{
+.dropdown-button .dropdown-toggle .dropdown-arrow {
     transition: transform 0.3 ease;
     transform: rotate(0deg);
 }
 
-.dropdown-button.active .dropdown-toggle .dropdown-arrow{
+.dropdown-button.active .dropdown-toggle .dropdown-arrow {
     transform: rotate(180deg);
 }
 
 /* Data Search Button */
-.report-data-header .report-data-search .data-search-button{
+.report-data-header .report-data-search .data-search-button {
     display: flex;
     align-items: center;
     margin-top: 25px;
 }
 
-.report-data-search .data-search-button button{
+.report-data-search .data-search-button button {
     width: 157px;
     height: 48px;
     border-radius: 10px;
@@ -1114,42 +1116,48 @@ main .main-content .container{
 }
 
 /* Data Download */
-.sales-report-data .report-data-header .data-download{
+.sales-report-data .report-data-header .data-export {
     margin-left: 15px;
     margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.report-data-header .data-download img{
+.report-data-header .data-export img {
     width: 48px;
     height: 48px;
 }
 
 /* Report Data */
-.sales-report-main .sales-report-data .report-data-main{
+.sales-report-main .sales-report-data .report-data-main {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.sales-report-data .report-data-main table{
+.sales-report-data .report-data-main .report-data-table {
+    overflow-y: scroll;
+    max-height: 600px;
+    width: auto;
+}
+
+.sales-report-data .report-data-main table {
     width: 100%;
-    height: auto;
-    overflow: scroll;
+    height: 600px;
     border-collapse: collapse;
     /* border: 1px solid black; */
 }
 
-.report-data-main table tr{
+.report-data-main table tr {
     width: auto;
     height: 50px;
     /* border: 1px solid black; */
     border-bottom: 1px solid #F7F7F7;
 }
 
-table tr th{
+table tr th {
     /* border: 1px solid black; */
     /* display: flex;
     justify-content: flex-start; */
@@ -1157,7 +1165,7 @@ table tr th{
     height: 50px;
 }
 
-tr th p{
+tr th p {
     /* border: 1px solid black; */
     display: flex;
     justify-content: flex-start;
@@ -1172,7 +1180,7 @@ tr th p{
     border: 1px solid black;
 } */
 
-tr td p{
+tr td p {
     margin-top: 10px;
     margin-left: 20px;
     font-weight: 400;
@@ -1182,23 +1190,40 @@ tr td p{
     color: #2B2B2B;
 }
 
-tr td img{
+tr td img {
+    cursor: pointer;
     margin-left: 20px;
 }
 
-.sales-report-data .report-data-main .data-entries-pagination{
+.data-entries-pagination .show-data-entries .data-entries {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -10px;
+    border-radius: 10px;
+}
+
+.show-data-entries .data-entries option {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sales-report-data .report-data-main .data-entries-pagination {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.report-data-main .data-entries-pagination .show-data-entries{
+.report-data-main .data-entries-pagination .show-data-entries {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
 }
 
-.data-entries-pagination .show-data-entries p{
+.data-entries-pagination .show-data-entries p {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -1206,13 +1231,13 @@ tr td img{
     color: #5E5E5E;
 }
 
-.data-entries-pagination .show-data-entries .dropdown-button{
+.data-entries-pagination .show-data-entries .dropdown-button {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.show-data-entries .dropdown-button a{
+.show-data-entries .dropdown-button a {
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -1229,12 +1254,12 @@ tr td img{
     margin-top: -5px;
 }
 
-.show-data-entries .dropdown-button a:visited{
+.show-data-entries .dropdown-button a:visited {
     color: #000000;
     text-decoration: none;
 }
 
-.show-data-entries .dropdown-button .dropdown-item{
+.show-data-entries .dropdown-button .dropdown-item {
     list-style: none;
     /* Sembunyikan Dropdown */
     display: none;
@@ -1249,7 +1274,7 @@ tr td img{
     padding: 5px 0;
 }
 
-.dropdown-button .dropdown-item li{
+.dropdown-button .dropdown-item li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1258,27 +1283,27 @@ tr td img{
     margin-bottom: 10px;
 }
 
-.dropdown-button.active .dropdown-item{
+.dropdown-button.active .dropdown-item {
     display: block;
 }
 
-.dropdown-button .dropdown-item li:hover{
+.dropdown-button .dropdown-item li:hover {
     padding: 10px 14px;
     cursor: pointer;
     font-size: 14px;
     color: #3572EF;
 }
 
-.dropdown-button .dropdown-toggle .dropdown-arrow{
+.dropdown-button .dropdown-toggle .dropdown-arrow {
     transition: transform 0.3 ease;
     transform: rotate(0deg);
 }
 
-.dropdown-button.active .dropdown-toggle .dropdown-arrow{
+.dropdown-button.active .dropdown-toggle .dropdown-arrow {
     transform: rotate(180deg);
 }
 
-.report-data-main .data-entries-pagination .recent-data-pagination{
+.report-data-main .data-entries-pagination .recent-data-pagination {
     display: flex;
     flex-direction: row;
     column-gap: 2px;
@@ -1286,7 +1311,7 @@ tr td img{
     cursor: pointer;
 }
 
-.data-entries-pagination .recent-data-pagination .pagination-btn{
+.data-entries-pagination .recent-data-pagination .pagination-btn {
     width: 28px;
     height: 30px;
     border-radius: 10px;
@@ -1296,13 +1321,13 @@ tr td img{
     align-items: center;
 }
 
-.recent-data-pagination .pagination-btn img{
+.recent-data-pagination .pagination-btn img {
     width: 16px;
     height: 16px;
     color: #C4C4C4;
 }
 
-.data-entries-pagination .recent-data-pagination .pagination-page{
+.data-entries-pagination .recent-data-pagination .pagination-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1314,18 +1339,18 @@ tr td img{
     transition: 0.2s ease;
 }
 
-.data-entries-pagination .recent-data-pagination .is-disabled{
+.data-entries-pagination .recent-data-pagination .is-disabled {
     /* opacity: 0.4; */
     color: #ABABAB;
     pointer-events: none;
 }
 
-.data-entries-pagination .recent-data-pagination .is-active{
+.data-entries-pagination .recent-data-pagination .is-active {
     background-color: #3572EF;
     color: #FFFFFF;
 }
 
-.data-entries-pagination .recent-data-pagination .pagination-ellipsis{
+.data-entries-pagination .recent-data-pagination .pagination-ellipsis {
     display: flex;
     justify-content: center;
     align-items: center;

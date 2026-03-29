@@ -6,7 +6,8 @@
     font-weight: 400;
     font-size: 14px;
 }
-html body{
+
+html body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
@@ -15,7 +16,7 @@ html body{
     background-color: #F7F7F7;
 }
 
-html body header{
+html body header {
     width: 100%;
     height: 80px;
     margin-left: 220px;
@@ -23,26 +24,26 @@ html body header{
     z-index: 10;
 }
 
-body header .header-container{
+body header .header-container {
     /* width: 1360px; */
     width: 100%;
     height: 80px;
     background-color: #FFFFFF;
 }
 
-header .header-container nav{
+header .header-container nav {
     display: flex;
     flex-direction: row;
     /* justify-content:space-between; */
 }
 
-.header-container nav .search-bar{
+.header-container nav .search-bar {
     margin-left: 20px;
     margin-top: 19px;
     /* padding: 12px; */
 }
 
-nav .search-bar .search-bar-box{
+nav .search-bar .search-bar-box {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,7 +57,7 @@ nav .search-bar .search-bar-box{
     margin-bottom: 13px;
 }
 
-nav .search-bar input{
+nav .search-bar input {
     width: 500px;
     height: 42px;
     border-radius: 10px;
@@ -67,18 +68,18 @@ nav .search-bar input{
     background-size: 16px 16px;
 }
 
-nav .search-bar input[type=text]:focus{
+nav .search-bar input[type=text]:focus {
     border-color: #007bff;
     color: #007bff;
     outline: none;
 }
 
-nav .search-bar input:not(:placeholder-shown){
+nav .search-bar input:not(:placeholder-shown) {
     background-image: none;
     padding-left: 10px;
 }
 
-nav .search-bar input::placeholder{
+nav .search-bar input::placeholder {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -87,7 +88,7 @@ nav .search-bar input::placeholder{
     padding-left: 38px;
 }
 
-.header-container nav .archive-and-account-container{
+.header-container nav .archive-and-account-container {
     display: flex;
     flex-direction: row;
     row-gap: 50px;
@@ -96,7 +97,7 @@ nav .search-bar input::placeholder{
     cursor: pointer;
 }
 
-nav .archive-and-account-container .order-archive{
+nav .archive-and-account-container .order-archive {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -109,17 +110,17 @@ nav .archive-and-account-container .order-archive{
     margin-left: 796px;
 }
 
-.archive-and-account-container .order-archive .order-archive-logo{
+.archive-and-account-container .order-archive .order-archive-logo {
     margin-top: 1px;
     margin-bottom: 1px;
 }
 
-.order-archive .order-archive-logo img{
+.order-archive .order-archive-logo img {
     width: 18px;
     height: 18px;
 }
 
-.archive-and-account-container .order-archive .order-archive-text{
+.archive-and-account-container .order-archive .order-archive-text {
     color: #787878;
 }
 
@@ -128,7 +129,7 @@ nav .archive-and-account-container .order-archive{
     font-size: 14px;
 }
 
-nav .archive-and-account-container .navbar-account{
+nav .archive-and-account-container .navbar-account {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -138,27 +139,27 @@ nav .archive-and-account-container .navbar-account{
     margin-left: 50px;
 }
 
-.archive-and-account-container .navbar-account .account-image{
+.archive-and-account-container .navbar-account .account-image {
     margin-left: 50px;
     border-radius: 100px;
 }
 
-.navbar-account .account-image img{
+.navbar-account .account-image img {
     width: 50px;
     height: 50px;
 }
 
-.archive-and-account-container .navbar-account a{
+.archive-and-account-container .navbar-account a {
     text-decoration: none;
 }
 
-.archive-and-account-container .navbar-account .account-name-title{
+.archive-and-account-container .navbar-account .account-name-title {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.navbar-account .account-name-title .account-name{
+.navbar-account .account-name-title .account-name {
     display: flex;
     flex-direction: row;
     line-height: 18px;
@@ -166,34 +167,34 @@ nav .archive-and-account-container .navbar-account{
     width: 51px;
 }
 
-.account-name-title .account-name p{
+.account-name-title .account-name p {
     font-weight: 500;
     font-size: 12px;
     /* letter-spacing: 0; */
 }
 
-.navbar-account .account-name-title .account-title{
+.navbar-account .account-name-title .account-title {
     line-height: 15px;
     color: #787878;
 }
 
-.account-name-title .account-title p{
+.account-name-title .account-title p {
     font-weight: 300;
     font-size: 12px;
     letter-spacing: 0;
 }
 
-.archive-and-account-container .navbar-account .logout-icon{
+.archive-and-account-container .navbar-account .logout-icon {
     margin-left: 20px;
     margin-right: 30px;
 }
 
-.logout-icon a img{
+.logout-icon a img {
     width: 20px;
     height: 20px;
 }
 
-html body main{
+html body main {
     display: flex;
     /* flex-direction: row; */
     /* width: 100%; */
@@ -201,7 +202,7 @@ html body main{
     height: auto;
 }
 
-body main .sidebar{
+body main .sidebar {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -215,7 +216,7 @@ body main .sidebar{
     background-color: #FFFFFF;
 }
 
-.sidebar .logo-section .logo-and-minimize{
+.sidebar .logo-section .logo-and-minimize {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -223,22 +224,22 @@ body main .sidebar{
     margin-left: 15px;
 }
 
-.logo-and-minimize .logo img{
+.logo-and-minimize .logo img {
     width: 130px;
     height: 50px;
 }
 
-.logo-section .logo-and-minimize .minimize-sidebar{
+.logo-section .logo-and-minimize .minimize-sidebar {
     margin-left: 29px;
     cursor: pointer;
 }
 
-.logo-and-minimize .minimize-sidebar img{
+.logo-and-minimize .minimize-sidebar img {
     width: 26px;
     height: 26px;
 }
 
-main .sidebar .cashier-section{
+main .sidebar .cashier-section {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -248,46 +249,46 @@ main .sidebar .cashier-section{
     margin-top: 30px;
 }
 
-.sidebar .cashier-section .cashier-icon{
+.sidebar .cashier-section .cashier-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.cashier-section .cashier-icon img{
+.cashier-section .cashier-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.sidebar .cashier-section .cashier-text{
+.sidebar .cashier-section .cashier-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #C4C4C4;
     margin-left: 12px;
 }
 
-.cashier-section .cashier-text a{
+.cashier-section .cashier-text a {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:visited{
+.cashier-section .cashier-text a:visited {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text a:link{
+.cashier-section .cashier-text a:link {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.cashier-section .cashier-text p{
+.cashier-section .cashier-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-main .sidebar .sales-report-section{
+main .sidebar .sales-report-section {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -297,46 +298,46 @@ main .sidebar .sales-report-section{
     margin-top: 20px;
 }
 
-.sidebar .sales-report-section .sales-report-icon{
+.sidebar .sales-report-section .sales-report-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.sales-report-section .sales-report-icon img{
+.sales-report-section .sales-report-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.page-settings .sales-report-section .sales-report-text{
+.page-settings .sales-report-section .sales-report-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #C4C4C4;
     margin-left: 12px;
 }
 
-.page-settings .sales-report-text a{
+.page-settings .sales-report-text a {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.page-settings .sales-report-text a:visited{
+.page-settings .sales-report-text a:visited {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.page-settings .sales-report-text a:link{
+.page-settings .sales-report-text a:link {
     color: #C4C4C4;
     text-decoration: none;
 }
 
-.sales-report-section .sales-report-text p{
+.sales-report-section .sales-report-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-main .sidebar .settings-section{
+main .sidebar .settings-section {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -345,66 +346,427 @@ main .sidebar .settings-section{
     margin-top: 20px;
 }
 
-.sidebar .settings-section .settings-icon{
+.sidebar .settings-section .settings-icon {
     width: 40px;
     height: 40px;
     margin-left: 15px;
 }
 
-.settings-section .settings-icon img{
+.settings-section .settings-icon img {
     width: 26px;
     height: 26px;
     margin: 7px;
 }
 
-.sidebar .settings-section .settings-text{
+.sidebar .settings-section .settings-text {
     line-height: 18px;
     letter-spacing: 0;
     color: #3572EF;
     margin-left: 12px;
 }
 
-.settings-section .settings-text a{
+.settings-section .settings-text a {
     color: #3572EF;
     text-decoration: none;
 }
 
-.settings-section .settings-text a:visited{
+.settings-section .settings-text a:visited {
     color: #3572EF;
     text-decoration: none;
 }
 
-.settings-section .settings-text a:link{
+.settings-section .settings-text a:link {
     color: #3572EF;
     text-decoration: none;
 }
 
-.settings-section .settings-text p{
+.settings-section .settings-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-.settings-section .settings-text p{
+.settings-section .settings-text p {
     font-weight: 400;
     font-size: 16px;
 }
 
-.sidebar .settings-section .side-bar-selected{
+.sidebar .settings-section .side-bar-selected {
     margin-left: 68px;
 }
 
-.settings-section .side-bar-selected img{
+.settings-section .side-bar-selected img {
     width: 3px;
     height: 30px;
 }
 
-body main .main-content{
+body main .main-content {
     width: 100%;
 }
 
-main .main-content .container{
+main .main-content .container {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
     margin-left: 20px;
+}
+
+.main-content .container .settings-body {
+    display: flex;
+    flex-direction: column;
+    /* width: 1360px; */
+    width: 100%;
+}
+
+.container .settings-body .settings-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.settings-body .settings-title h1 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.container .settings-body .settings-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-body .settings-main .settings-account {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-main .settings-account .account-profile {
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 60px; */
+    margin-top: 20px;
+}
+
+.settings-account .account-profile .account-title {
+    margin-bottom: 10px;
+}
+
+.account-profile .account-title h2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-account .account-profile .account-picture {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.account-profile .account-picture img {
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.account-profile .account-picture .change-delete-picture {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.account-picture .change-delete-picture .change-picture-account {
+    width: 106px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: #3572EF;
+    cursor: pointer;
+}
+
+.change-delete-picture .change-picture-account p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #FFFFFF;
+}
+
+.account-picture .change-delete-picture .delete-picture-account {
+    width: 106px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid #3572EF;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.change-delete-picture .delete-picture-account p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #3572EF;
+}
+
+.settings-account .account-profile .account-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-profile .account-data form {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.account-data form .form-email {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.account-data form .form-username {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.account-data form .form-role {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.account-data form .form-status {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    margin-top: 20px;
+}
+
+.account-data form .form-languange {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    margin-top: 20px;
+}
+
+.account-data form label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.account-data form input {
+    width: 404px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #ABABAB;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.account-data form input[type=email] {
+    padding-left: 14px;
+    /* padding-top: 14px;
+    padding-bottom: 14px; */
+}
+
+input[type=email]:focus {
+    border-color: #3572EF;
+    outline: none;
+}
+
+.account-data form input[type=text] {
+    padding-left: 14px;
+    /* padding-top: 14px;
+    padding-bottom: 14px; */
+}
+
+input[type=text]:focus {
+    border-color: #3572EF;
+    outline: none;
+}
+
+.account-data form select {
+    width: 404px;
+    height: 48px;
+    padding-left: 14px;
+    border-radius: 10px;
+    border: 1px solid #ABABAB;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-body .settings-main hr {
+    border: 1px solid #EBEBEB;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.settings-body .settings-main .settings-account-password {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-main .settings-account-password h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-main .settings-account-password .change-password {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-account-password .change-password label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.settings-account-password .change-password input {
+    margin-top: 2px;
+    width: 404px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #ABABAB;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-account-password .change-password input[type=password] {
+    padding-left: 14px;
+    /* padding-top: 14px;
+    padding-bottom: 14px; */
+}
+
+.settings-account-password .change-password button {
+    margin-top: 20px;
+    width: 121px;
+    height: 34px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #3572EF;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.settings-body .settings-main .settings-account-appearance {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-main .settings-account-appearance h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-main .settings-account-appearance .appearance-settings {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.settings-account-appearance .appearance-settings .preference-mode {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.settings-account-appearance .appearance-settings .font-size {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.settings-account-appearance .appearance-settings .zoom-display {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+.settings-account-appearance .appearance-settings label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #5E5E5E;
+}
+
+.settings-account-appearance .appearance-settings select {
+    margin-top: 2px;
+    width: 404px;
+    height: 48px;
+    padding-left: 14px;
+    border-radius: 10px;
+    border: 1px solid #ABABAB;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #2B2B2B;
+}
+
+.settings-body .settings-main .settings-save-changes {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-main .settings-save-changes button {
+    margin-top: 20px;
+    width: 133px;
+    height: 48px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #C4C4C4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    cursor: pointer;
 }
